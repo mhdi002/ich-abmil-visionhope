@@ -1,0 +1,144 @@
+seed: 42
+
+paths:
+  # WSL2 setup: NIfTI and outputs on the Windows D: drive (the WSL virtual disk lives on the small C: drive)
+  nifti_root: /mnt/d/All parts NIFTI files   # folders 1..11 with <accession>_<ctindex>.nii.gz
+  nifti_subdirs: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
+  ct_label_xlsx: /mnt/d/All parts NIFTI files/Stage_2_7_1_Remove_CTs_without_20_60_slices_17_Bahman_1404_ready (2).xlsx
+  patient_xlsx: /mnt/d/All parts NIFTI files/patient_based_with_surgery_times_Age_Sex_ready_for_machine (2).xlsx
+  outputs: /mnt/d/All parts NIFTI files/ich_pipeline/outputs
+  manifest: /mnt/d/All parts NIFTI files/ich_pipeline/outputs/scan_manifest.csv
+  splits: /mnt/d/All parts NIFTI files/ich_pipeline/outputs/splits.csv
+  slice_cache: /mnt/d/All parts NIFTI files/ich_pipeline/outputs/cache/slices      # uint8 [N,3,256,256] per scan
+  cistern_cache: /mnt/d/All parts NIFTI files/ich_pipeline/outputs_cistern/cache/slices   # trim_mode: cistern (.npz)
+  feature_cache: /mnt/d/All parts NIFTI files/ich_pipeline/outputs/cache/features  # frozen encoder features per scan
+  plots: /mnt/d/All parts NIFTI files/ich_pipeline/outputs/plots
+  tensorboard: /mnt/d/All parts NIFTI files/ich_pipeline/outputs/tb
+
+classes: [EDH, SDH, tSAH, Has_IVH, Contusion]
+aux_target: Has_Any ICH
+
+preprocess:
+  workers: 6                                   # WSL has ~7.7 GB RAM
+  cache_size: 256
+  windows: [[40, 80], [80, 200], [40, 40]]     # [level, width]: brain, subdural, stroke
+  min_mask_area_cm2: 15.0                      # drop slices whose intracranial area is below this
+  # Slice trim. "area" (original run e2e_vh): soft-tissue area of the cached stack, base 0.25 / vertex 0.12.
+  # "anatomic": intracranial-mask area + deep bone (petrous / orbits / sphenoid) from HU, before cropping.
+  trim_mode: anatomic
+  trim_base_frac: 0.45                         # strip skull-base end slices with intracranial area < frac * scan max
+  trim_vertex_frac: 0.25                       # vertex end: lower, convexity SDH/EDH live on small top slices
+  trim_base_bone_frac: 0.02                    # ... or with inner bone > frac * scan max intracranial area
+  trim_hull_margin_mm: 2.0                     # inner bone = bone inside the intracranial convex hull, eroded by this
+  trim_min_keep: 8
+  trim_max_frac: 0.4                           # never drop more than 40 % of a bag's slices
+  cistern_below_mm: 15                         # trim_mode: cistern -> slices from 15 mm below to 25 mm above the
+  cistern_above_mm: 25                         #   skull-base trim line (basal cisterns + 3rd ventricle)
+  orient_thumb_fracs: [0.05, 0.3, 0.6]         # orientation CNN thumbnails (bag fractions); 0.25/0.5/0.75 with the old trim
+  mask_dilation_mm: 6.0                        # generous margin so SDH/EDH against the skull survive
+  bone_hu: 300
+  soft_hu: [-20, 140]                          # intracranial candidate range (CSF .. acute blood)
+  crop_margin: 0.04
+  hu_hist_bins: [-20, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 140]
+
+splits:
+  fractions: [0.70, 0.15, 0.15]
+  n_folds: 5
+
+encoder:
+  name: visionhope_tiny          # visionhope_tiny | visionhope_small | convnext_tiny | tf_efficientnetv2_s
+  checkpoint: weights/visionhope_tiny.pth
+  input_size: 224
+  grad_checkpointing: true
+  freeze_norm: true              # freeze BatchNorm statistics/affine (bag batches are tiny)
+
+model:
+  pooling: abmil                 # abmil | mean | max
+  attention: per_class           # per_class | shared
+  srnl_context: false            # SRNL over the slice sequence before pooling (ablation)
+  dual_bag: false                # one model, two slice groups: brain bag + basal-cistern bag (tasks.cistern_slots)
+  proj_dim: 256
+  attn_dim: 128
+  dropout: 0.25
+
+tasks:                           # extra heads on the same bag model (multi-task); empty = 5-class model only
+  enabled: false
+  # binary targets: name -> pandas expression over manifest columns (each gets its own attention map)
+  binary:
+    mls_any: "midline_shift_mm > 0"
+    mls_gt5: "midline_shift_mm > 5"                    # Marshall IV threshold
+    cist_compressed: "Cisterns >= 1"                   # compressed or effaced (Marshall III)
+    cist_effaced: "Cisterns >= 2"                      # code 3 merged into 2 (too few)
+    marshall_ge2: "`Marshall CT score` >= 2"           # any visible intracranial pathology
+    marshall_vi: "`Marshall CT score` == 6"            # high/mixed density lesion > 25 cm3, not evacuated
+    mass_effect: "`Has_Mass effect` == 1"
+    herniation: "Herniation == 1"
+    edema: "Has_Edema == 1"
+    hydrocephalus: "Hydrocephalus == 1"
+    skull_fx: "`Has_Skull Fx` == 1"
+    sdh_right: "(`SDH side_Right` == 1) | (`SDH side_Bilateral` == 1)"
+    sdh_left: "(`SDH side_Left` == 1) | (`SDH side_Bilateral` == 1)"
+    edh_right: "(`EDH side_Right` == 1) | (`EDH side_Bilateral` == 1)"
+    edh_left: "(`EDH side_Left` == 1) | (`EDH side_Bilateral` == 1)"
+    contusion_right: "(`Contusion side_Right` == 1) | (`Contusion side_Bilateral` == 1)"
+    contusion_left: "(`Contusion side_Left` == 1) | (`Contusion side_Bilateral` == 1)"
+  regression:                    # name -> [column, scale]; loss on value / scale
+    mls_mm: [midline_shift_mm, 10.0]
+  cistern_slots: [cist_compressed, cist_effaced]   # dual_bag: these heads attend only to the cistern slices
+  weight_binary: 0.5             # task losses are averaged over tasks, then weighted
+  weight_regression: 0.5
+  regression_pos_weight: 1.0     # > 1: up-weight scans with a non-zero target (86 % of scans have 0 mm shift)
+  uncertainty_weighting: false   # true: learn the class / binary-task / regression loss weights (replaces weight_*)
+
+loss:
+  name: asl                      # asl | focal | bce
+  asl_gamma_neg: 2.0
+  asl_gamma_pos: 0.0
+  asl_clip: 0.05
+  focal_gamma: 2.0
+  use_pos_weight: true           # pos_weight = sqrt(neg/pos) per class (focal/bce)
+  aux_weight: 0.2                # Has_Any ICH auxiliary head
+
+train:
+  stage: A                       # A: cached frozen features -> head; B: end-to-end
+  balanced_sampler: true
+  amp: true
+  ema_decay: 0.999
+  stage_a:
+    epochs: 60
+    batch_size: 32
+    lr_head: 3.0e-4
+    weight_decay: 1.0e-4
+    warmup_epochs: 2
+    patience: 12
+  stage_b:
+    epochs: 12
+    bags_per_step: 4               # bags loaded per optimizer micro-step
+    slice_budget: 60               # max slices per forward/backward; larger groups are split (16 GB, no ckpt)
+    grad_checkpointing: false      # off = ~25% faster, uses the VRAM; turn on if slice_budget must grow
+    grad_accum: 4                  # effective batch = bags_per_step * grad_accum = 16 bags
+    lr_backbone: 1.0e-5
+    lr_head: 1.0e-4
+    weight_decay: 0.05
+    warmup_epochs: 1
+    patience: 4
+    max_val_scans: null
+  attn_snapshot_every: 2
+  num_workers: 8
+
+augment:
+  rotate_deg: 10
+  scale: [0.9, 1.1]
+  translate: 0.06
+  contrast: 0.1
+  brightness: 0.05
+  noise_std: 0.02
+
+eval:
+  n_bootstrap: 1000
+  spec_target: 0.90
+  threshold_mode: f1               # f1: max-F1 on val | recall: highest val threshold with recall >= target_recall
+  target_recall: 0.80
+  topk_slices: 4
+
+phase6_self_training: false

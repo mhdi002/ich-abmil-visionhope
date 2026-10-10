@@ -1,0 +1,26 @@
+[stage B] multi-task: 17 binary ['mls_any', 'mls_gt5', 'cist_compressed', 'cist_effaced', 'marshall_ge2', 'marshall_vi', 'mass_effect', 'herniation', 'edema', 'hydrocephalus', 'skull_fx', 'sdh_right', 'sdh_left', 'edh_right', 'edh_left', 'contusion_right', 'contusion_left'], regression ['mls_mm']
+[stage B] run=vh_small_all encoder=visionhope_small train=6608 val=1406 train-eval subset=1000
+[stage B] encoder params: 50.5 M at lr 1.0e-05, SRNL 1.36 M at lr 5.0e-05
+  epoch 1: encoder frozen (head warm-up)
+  epoch 1 step 62/826 loss 2.5087 114s peak 2.9 GiB
+  epoch 1 step 124/826 loss 2.3908 226s peak 2.9 GiB
+  epoch 1 step 186/826 loss 2.3317 337s peak 2.9 GiB
+  epoch 1 step 248/826 loss 2.2715 449s peak 2.9 GiB
+  epoch 1 step 310/826 loss 2.2020 560s peak 2.9 GiB
+  epoch 1 step 372/826 loss 2.1671 671s peak 2.9 GiB
+  epoch 1 step 434/826 loss 2.1305 785s peak 2.9 GiB
+  epoch 1 step 496/826 loss 2.1079 894s peak 2.9 GiB
+  epoch 1 step 558/826 loss 2.0836 1007s peak 2.9 GiB
+  epoch 1 step 620/826 loss 2.0619 1119s peak 2.9 GiB
+  epoch 1 step 682/826 loss 2.0391 1230s peak 2.9 GiB
+  epoch 1 step 744/826 loss 2.0238 1342s peak 2.9 GiB
+  epoch 1 step 806/826 loss 2.0090 1449s peak 2.9 GiB
+epoch   1 | loss 2.0045/1.6555 | AUROC train 0.7256 val 0.7147 | AUPRC train 0.4902 val 0.4687 | ent 0.868 peak 0.087 | gn 7.98 lr 1.34e-04
+   @0.5 acc train 0.745 val 0.746 (bal 0.599) | recall train 0.470 val 0.471 | val prec 0.535 spec 0.728
+   val AUROC/AUPRC EDH=0.650/0.250 SDH=0.800/0.671 tSAH=0.775/0.577 Has_IVH=0.668/0.185 Contusion=0.680/0.660
+   val acc/recall@0.5 EDH=0.844/0.009 SDH=0.740/0.605 tSAH=0.688/0.754 Has_IVH=0.900/0.051 Contusion=0.559/0.932
+   val tasks AUROC/AUPRC mls_any=0.790/0.466 mls_gt5=0.858/0.411 cist_compressed=0.765/0.437 cist_effaced=0.769/0.234 marshall_ge2=0.784/0.952 marshall_vi=0.674/0.174 mass_effect=0.716/0.555 herniation=0.793/0.285 edema=0.715/0.698 hydrocephalus=0.482/0.065 skull_fx=0.622/0.582 sdh_right=0.758/0.429 sdh_left=0.747/0.367 edh_right=0.544/0.097 edh_left=0.441/0.062 contusion_right=0.648/0.470 contusion_left=0.707/0.558
+   val mls_mm: MAE 1.60, MAE on positives 4.16, r 0.576
+   selection: 0.5 x (class AUPRC 0.4687 + task AUPRC 0.4026) = 0.4356
+   learned loss weights: classes 0.980, binary tasks 1.027, regression 1.024
+  epoch time 2037s

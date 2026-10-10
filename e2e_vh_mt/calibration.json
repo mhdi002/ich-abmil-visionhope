@@ -1,0 +1,136 @@
+{
+ "run": "e2e_vh_mt",
+ "classes": [
+  "EDH",
+  "SDH",
+  "tSAH",
+  "Has_IVH",
+  "Contusion"
+ ],
+ "tasks": [
+  "mls_any",
+  "mls_gt5",
+  "cist_compressed",
+  "cist_effaced",
+  "marshall_ge2",
+  "marshall_vi",
+  "mass_effect",
+  "herniation",
+  "edema",
+  "hydrocephalus",
+  "skull_fx",
+  "sdh_right",
+  "sdh_left",
+  "edh_right",
+  "edh_left",
+  "contusion_right",
+  "contusion_left"
+ ],
+ "regression": [
+  "mls_mm"
+ ],
+ "regression_scale": {
+  "mls_mm": 10.0
+ },
+ "class_thresholds": {
+  "EDH": 0.6720546126365663,
+  "SDH": 0.4505651213228703,
+  "tSAH": 0.501966577768326,
+  "Has_IVH": 0.6093227565288544,
+  "Contusion": 0.5715610161423683
+ },
+ "task_thresholds": {
+  "mls_any": 0.29773185402154917,
+  "mls_gt5": 0.19610800296068193,
+  "cist_compressed": 0.30267746150493635,
+  "cist_effaced": 0.09327979348599912,
+  "marshall_ge2": 0.43645775467157366,
+  "marshall_vi": 0.1830063983798027,
+  "mass_effect": 0.22145605087280273,
+  "herniation": 0.20437164604663857,
+  "edema": 0.27968275249004365,
+  "hydrocephalus": 0.11249285098165274,
+  "skull_fx": 0.3211714670062065,
+  "sdh_right": 0.24043102487921716,
+  "sdh_left": 0.24464621767401723,
+  "edh_right": 0.22478924468159694,
+  "edh_left": 0.17700614072382448,
+  "contusion_right": 0.2754326671361923,
+  "contusion_left": 0.3485974580049515
+ },
+ "vi_model": {
+  "features": [
+   "vi_head_logit",
+   "log1p_largest_cm3",
+   "log1p_total_cm3",
+   "log1p_extra_axial_cm3",
+   "log1p_intra_axial_cm3"
+  ],
+  "mean": [
+   -2.6164396499650575,
+   1.4167359795899268,
+   1.9272235496282053,
+   1.6301051738089036,
+   0.7674681540061785
+  ],
+  "scale": [
+   0.8912424848836306,
+   1.0656284237673388,
+   1.0945526848324272,
+   1.1164785065546807,
+   0.8098957853265514
+  ],
+  "coef": [
+   0.6726204314866218,
+   0.9100800294783852,
+   -0.13694144337473665,
+   -0.4862327061354088,
+   0.1996826949281757
+  ],
+  "intercept": -3.401017202851501
+ },
+ "rule_thresholds": {
+  "marshall_vi": 0.27067491466672233,
+  "mls_gt5": 0.2557710541396584,
+  "cist_compressed": 0.24605018234803896,
+  "marshall_ge2": 0.6212403478241768
+ },
+ "rule_order": [
+  [
+   "marshall_vi",
+   6
+  ],
+  [
+   "mls_gt5",
+   4
+  ],
+  [
+   "cist_compressed",
+   3
+  ],
+  [
+   "marshall_ge2",
+   2
+  ]
+ ],
+ "validation": {
+  "val_rule_kappa": 0.5160638412710211,
+  "test_rule": {
+   "accuracy": 0.5625441696113074,
+   "kappa_quadratic": 0.5074373889403581,
+   "kappa_ci95": [
+    0.43885287008870816,
+    0.5724138246193068
+   ],
+   "recall": {
+    "cat1": 0.6388888888888888,
+    "cat2": 0.6147091108671789,
+    "cat3": 0.44,
+    "cat4": 0.29310344827586204,
+    "cat6": 0.1875
+   }
+  },
+  "test_vi_auroc_head": 0.8056095736724009,
+  "test_vi_auroc_head_plus_volume": 0.8215968586387434
+ }
+}

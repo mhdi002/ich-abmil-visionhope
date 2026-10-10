@@ -1,0 +1,328 @@
+<title>ICH VisionHOPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (~68ch) with full-width figure plates and data tables; research-report register. */
+:root {
+  --bg: #f4f6f7;
+  --surface: #ffffff;
+  --fg: #1c262e;
+  --muted: #5d6b75;
+  --rule: #d5dde2;
+  --accent: #2f7482;      /* teal, matches the figures */
+  --accent-2: #6c5a8e;    /* violet, the final model in the figures */
+  --code-bg: #e9eef1;
+  --plate: #ffffff;       /* figure plates stay white: the PNGs are drawn on white */
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11171b; --surface: #182128; --fg: #e3e9ec; --muted: #9aa9b3; --rule: #2b3740;
+    --accent: #6fb3c0; --accent-2: #a995cf; --code-bg: #1e2a31; --plate: #f4f6f7; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11171b; --surface: #182128; --fg: #e3e9ec; --muted: #9aa9b3; --rule: #2b3740;
+  --accent: #6fb3c0; --accent-2: #a995cf; --code-bg: #1e2a31; --plate: #f4f6f7; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.62; }
+.page { max-width: 1040px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; }
+.col { max-width: 68ch; }
+header.masthead { display: grid; gap: 14px; padding-block: 8px 28px; border-bottom: 1px solid var(--rule); }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(34px, 5vw, 52px); line-height: 1.08; margin: 0; text-wrap: balance; }
+.dek { font-size: 19px; color: var(--muted); max-width: 62ch; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 29px; line-height: 1.2; margin: 56px 0 10px; text-wrap: balance; }
+h2 .num { font-family: var(--font-mono); font-size: 14px; color: var(--accent); margin-right: 10px; vertical-align: 4px; }
+h3 { font-size: 17px; font-weight: 600; margin: 30px 0 6px; }
+p { margin: 0 0 14px; }
+a { color: var(--accent); }
+strong { font-weight: 600; }
+code, .mono { font-family: var(--font-mono); font-size: .88em; }
+code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; }
+.abstract { background: var(--surface); border: 1px solid var(--rule); padding: 20px 24px; margin-top: 28px; }
+.abstract h2 { margin-top: 0; font-size: 20px; }
+.findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; margin: 28px 0 8px; border-top: 2px solid var(--fg); border-bottom: 1px solid var(--rule); }
+.finding { padding: 14px 16px 16px 0; display: grid; gap: 2px; }
+.finding .v { font-family: var(--font-display); font-size: 34px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.finding .l { font-size: 13px; color: var(--muted); }
+figure { margin: 26px 0 30px; }
+figure .plate { background: var(--plate); border: 1px solid var(--rule); padding: 10px; overflow-x: auto; }
+figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+figure.tall img { max-height: 1100px; width: auto; }
+figcaption { font-size: 13.5px; color: var(--muted); margin-top: 8px; max-width: 80ch; }
+figcaption b { color: var(--fg); font-weight: 600; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.pair figure { margin: 0; min-width: 0; }
+.table-wrap { overflow-x: auto; margin: 16px 0 26px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-weight: 600; border-bottom: 2px solid var(--fg); font-size: 12.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+tr.best td { font-weight: 600; color: var(--accent-2); }
+td.note { white-space: normal; text-align: left; color: var(--muted); font-size: 13px; }
+caption { caption-side: bottom; text-align: left; font-size: 13px; color: var(--muted); padding-top: 8px; }
+pre.json { background: var(--code-bg); padding: 14px 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.5; }
+.mermaid-wrap { background: var(--surface); border: 1px solid var(--rule); padding: 14px; overflow-x: auto; margin: 22px 0; }
+ul, ol { padding-left: 22px; margin: 0 0 14px; }
+li { margin-bottom: 4px; }
+.small { font-size: 13.5px; color: var(--muted); }
+footer { margin-top: 60px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 560px) { body { font-size: 15px; } .finding .v { font-size: 28px; } h2 { font-size: 24px; } }
+</style>
+
+<div class="page">
+<header class="masthead">
+  <div class="eyebrow">Research report · weakly supervised head-CT analysis</div>
+  <h1>ICH VisionHOPE: hemorrhage, midline shift and Marshall scoring from scan-level labels</h1>
+  <p class="dek">One VisionHOPE-small backbone with self-referential memory reads a head CT as a bag of axial slices and reports the hemorrhage type, midline shift in millimetres, basal-cistern status, an approximate lesion volume, a Marshall CT score and Grad-CAM evidence for each finding.</p>
+  <div class="meta"><span>9,431 scans · 3,598 patients</span><span>patient-level splits 70 / 15 / 15</span><span>RTX 3070 8 GB</span><span>October 2026</span></div>
+</header>
+
+<section class="abstract col">
+  <h2>Summary</h2>
+  <p>Radiologist reports give only scan-level labels: which hemorrhage types are present, the midline shift, the state of the basal cisterns and the Marshall CT category, but never where on which slice. We treat every scan as a bag of axial slices and train a VisionHOPE encoder end-to-end with gated attention multiple-instance learning, one attention map per output. Skull-base and vertex slices, which the first model attended to, are removed by an anatomy-aware trim, and the basal cisterns are read from their own slice window inside the same model. The final model, VisionHOPE-small trained on all 23 outputs with its self-referential memories given their own learning rate, reaches macro AUROC 0.883 and AUPRC 0.786 for EDH, SDH, tSAH, IVH and contusion on held-out patients, up from 0.844 and 0.729 for the first model. It detects midline shift above 5 mm with AUROC 0.94 and estimates shifted scans within 2.8 mm, and its outputs combined by the Marshall guideline agree with the radiologist score with quadratic kappa 0.58. A single tool turns a NIfTI file into a structured report with Grad-CAM images. None of this is clinically validated.</p>
+</section>
+
+<div class="findings" role="list">
+  <div class="finding" role="listitem"><span class="v">0.883</span><span class="l">macro AUROC, 5 hemorrhage types (test)</span></div>
+  <div class="finding" role="listitem"><span class="v">0.786</span><span class="l">macro AUPRC, 5 hemorrhage types (test)</span></div>
+  <div class="finding" role="listitem"><span class="v">0.94</span><span class="l">AUROC, midline shift &gt; 5 mm; 2.8 mm error on shifted scans</span></div>
+  <div class="finding" role="listitem"><span class="v">κ 0.58</span><span class="l">Marshall score vs radiologist (quadratic)</span></div>
+</div>
+
+<h2><span class="num">1</span>Data and labels</h2>
+<div class="col">
+<p>The cohort is every pre-surgery head CT in the institutional TBI registry with a matching NIfTI volume: 9,431 scans from 3,598 patients after excluding post-operative studies, orientation failures, reformats and 32 duplicated files. Splits are by patient (train 6,608 scans, validation 1,406, test 1,417), so serial CTs of one patient never cross splits. Every test number below comes from patients the models never saw, and every model was compared on the same patients.</p>
+<p>Each CT row in the label sheet carries the five hemorrhage types (EDH, SDH, traumatic SAH, IVH, contusion), the midline shift in millimetres, a 4-level cistern grade (codes 2 and 3 merged into “effaced” because code 3 is rare), the Marshall CT category, mass effect, herniation, edema, hydrocephalus, skull fracture, and the side of each SDH, EDH and contusion. No slice-level or voxel-level annotation exists.</p>
+</div>
+<div class="table-wrap col"><table>
+  <thead><tr><th>Marshall category</th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th></tr></thead>
+  <tbody><tr><td>Scans in cohort</td><td>1,494</td><td>5,929</td><td>1,012</td><td>335</td><td>10</td><td>651</td></tr></tbody>
+  <caption>Category V (surgically evacuated lesion) is almost absent in a pre-surgery cohort and cannot be read from a pre-operative image; it is excluded from Marshall evaluation.</caption>
+</table></div>
+
+<h2><span class="num">2</span>Preprocessing and slice selection</h2>
+<div class="col">
+<p>Each volume is reoriented from its affine, the shortest axis is taken as the axial stack, and an intracranial mask is built per slice from the closed skull ring. Three CT windows (brain 40/80, subdural 80/200, stroke 40/40) are applied inside a 6 mm dilated mask, cropped square around the cranium and stored at 256 px. A small orientation CNN fixes rotated scans; it was retrained on thumbnails taken low in the trimmed stack because the skull base, its strongest cue, is no longer there.</p>
+<p>The first model attended to petrous, orbital and sphenoid slices and to tiny vertex caps, and its Grad-CAM lit up the black background. Slices are now selected by anatomy. From the inferior end, a slice is dropped while its intracranial area is below 45 % of the scan's largest slice or the bone inside the convex hull of the intracranial mask exceeds 2 % of that area (petrous ridges, clivus, sphenoid and orbital roofs lie there; the calvarial ring does not). From the vertex, slices below 25 % of the maximum area are dropped. At most 40 % of a scan is removed. The median scan keeps 17 of 21 slices. The basal cisterns sit exactly in the region this removes, so they get their own window: 15 mm below to 25 mm above the trim line.</p>
+</div>
+<figure>
+  <div class="plate"><img src="fig/slice_selection.png" alt="Grid of 22 axial CT slices from skull base to vertex, each labelled as brain slice, cistern window or dropped." loading="lazy"></div>
+  <figcaption><b>Figure 1.</b> Slice selection for one scan, skull base first. The brain group (teal) feeds the hemorrhage, midline-shift and other heads; the basal-cistern window (red) feeds only the cistern heads; petrous and orbital slices below the brain group and the vertex cap are dropped from the brain group.</figcaption>
+</figure>
+
+<h2><span class="num">3</span>Architecture</h2>
+<div class="col">
+<p><strong>Encoder.</strong> VisionHOPE is a hierarchical vision backbone whose blocks contain self-referential nested learning (SRNL) operators: small associative memories (<code>M_m</code>, <code>M_v</code>, <code>M_k</code>, <code>M_eta</code>, <code>M_alpha</code>) whose state is rewritten as the sequence is read, so the block modifies its own key-value mapping on the fly. Each axial slice passes through the encoder and becomes a 1,024-dimensional feature vector. The final model uses VisionHOPE-small: 51.9 M encoder parameters, 1.36 M of them SRNL memories (VisionHOPE-tiny, used by the earlier models, has 25.6 M and 0.74 M). Training starts from ImageNet weights; BatchNorm statistics stay frozen because bags are small.</p>
+<p><strong>Bag head.</strong> The slice features are projected to 256 dimensions, and an SRNL layer runs over the slice sequence so that slices can inform each other (continuity of a hematoma, the septum level for midline shift). A gated attention MIL head (Ilse et al., 2018) then pools the slices separately for every output: each of the 23 outputs has its own attention map over slices and its own linear read-out. The attention weights are the slice-level evidence; Grad-CAM on the last encoder stage gives the in-slice evidence.</p>
+<p><strong>Two slice groups, one pass.</strong> Both slice groups of a scan go through the encoder together, about 25 slices per scan. The two cistern outputs may attend only to the cistern window; every other output only to the brain slices. This keeps skull-base slices out of the hemorrhage evidence while the cistern heads still see the cisterns.</p>
+</div>
+<div class="mermaid-wrap"><pre class="mermaid">
+flowchart LR
+  A[NIfTI head CT] --> B[reorient, intracranial mask, 3 CT windows]
+  B --> C[brain slices: anatomic trim]
+  B --> D[basal-cistern slices: 15 mm below to 25 mm above trim line]
+  C --> E[VisionHOPE-small encoder with SRNL memories, one pass]
+  D --> E
+  E --> F[slice features 1024-d, projection 256-d, SRNL over slice sequence]
+  F --> G[per-output gated attention MIL, 23 attention maps]
+  G --> H[5 hemorrhage types]
+  G --> I[midline shift: mm, more than 0, more than 5 mm]
+  G --> J[cisterns: compressed, effaced]
+  G --> K[Marshall II and VI, mass effect, edema, herniation, laterality]
+  B --> L[HU lesion volume]
+  H --> M[Marshall rule fitted on validation]
+  I --> M
+  J --> M
+  K --> M
+  L --> M
+  M --> N[structured JSON report and Grad-CAM]
+</pre></div>
+<div class="table-wrap col"><table>
+  <thead><tr><th>Output group</th><th>Outputs</th><th>Loss</th></tr></thead>
+  <tbody>
+    <tr><td>Hemorrhage type</td><td class="note">EDH, SDH, tSAH, IVH, contusion, plus “any hemorrhage”</td><td>asymmetric loss</td></tr>
+    <tr><td>Midline shift</td><td class="note">mm (regression), &gt; 0 mm, &gt; 5 mm</td><td>smooth-L1 (shifted scans 5×), BCE</td></tr>
+    <tr><td>Cisterns</td><td class="note">compressed or worse, effaced</td><td>BCE</td></tr>
+    <tr><td>Marshall components</td><td class="note">any pathology (≥ II), large lesion (VI)</td><td>BCE</td></tr>
+    <tr><td>Other findings</td><td class="note">mass effect, herniation, edema, hydrocephalus, skull fracture</td><td>BCE</td></tr>
+    <tr><td>Laterality</td><td class="note">SDH, EDH and contusion, right and left</td><td>BCE</td></tr>
+  </tbody>
+  <caption>The three loss groups (hemorrhage, binary tasks, regression) are balanced by learned weights (Kendall et al., 2018). By the end of training the model weighted the binary tasks and the regression 1.44 and the hemorrhage group 1.10.</caption>
+</table></div>
+
+<h2><span class="num">4</span>Training</h2>
+<div class="col">
+<p>Augmentation is rotation, scale, translation, contrast, brightness and noise without flips, because left and right carry meaning. Gradients are accumulated to 16 scans per step with gradient checkpointing on the 8 GB GPU. An exponential moving average of the weights is evaluated each epoch on the validation patients, and the checkpoint with the best validation score (class AUPRC plus task AUPRC) is kept.</p>
+</div>
+<div class="table-wrap"><table>
+  <thead><tr><th>Run</th><th>Encoder</th><th>Starts from</th><th>Slices</th><th>Outputs</th><th>Epochs</th><th>Learning rate (encoder / head)</th></tr></thead>
+  <tbody>
+    <tr><td>e2e_vh</td><td>VisionHOPE-tiny</td><td>ImageNet + head on frozen features</td><td>original trim</td><td>5 types</td><td>12</td><td>1e-5 / 1e-4</td></tr>
+    <tr><td>e2e_vh_ft</td><td>tiny</td><td>e2e_vh</td><td>anatomic trim</td><td>5 types</td><td>8</td><td>5e-6 / 3e-5</td></tr>
+    <tr><td>e2e_vh_mt</td><td>tiny</td><td>e2e_vh_ft</td><td>anatomic trim</td><td>23 outputs</td><td>7</td><td>5e-6 / 1e-4</td></tr>
+    <tr><td>cistern_vh</td><td>tiny</td><td>e2e_vh_mt</td><td>cistern window</td><td>23 (cistern heads used)</td><td>8</td><td>5e-6 / 5e-5</td></tr>
+    <tr class="best"><td>vh_small_final</td><td>VisionHOPE-small</td><td>ImageNet</td><td>brain + cistern groups</td><td>23 outputs</td><td>1 frozen + 8</td><td>1e-5, SRNL 5e-5 / 2e-4</td></tr>
+  </tbody>
+  <caption>The final run was interrupted twice (a GPU out-of-memory at the first trainable epoch, then a short read from the Windows drive after epoch 7) and resumed from its saved checkpoints; the best validation checkpoint is from epoch 9.</caption>
+</table></div>
+<figure>
+  <div class="plate"><img src="fig/training_curves_small.png" alt="Three line charts for the final model: train loss falls from 1.7 to 0.2 while validation loss flattens at 0.69; validation AUPRC rises to 0.77; validation AUROC rises to 0.886, above the tiny model's 0.838 from epoch 3." loading="lazy"></div>
+  <figcaption><b>Figure 2.</b> The final model, epochs 2–10 (epoch 1 trained the new head on the frozen encoder). Validation AUROC passes the best tiny model at epoch 3 and levels off at 0.886 by epoch 6. Validation loss keeps falling until epoch 7 and then stays flat while training loss keeps dropping, so the last epochs add little.</figcaption>
+</figure>
+<figure>
+  <div class="plate"><img src="fig/training_curves_all.png" alt="Three line charts across 27 cumulative epochs of the tiny models: validation AUPRC flat at about 0.70 after the first run." loading="lazy"></div>
+  <figcaption><b>Figure 3.</b> The earlier tiny-model runs for comparison. After the first run, validation AUPRC stayed flat at 0.70–0.71 while training AUPRC kept rising: these runs fine-tuned an already trained model at low learning rates.</figcaption>
+</figure>
+<div class="col">
+<h3>The self-modifying memories</h3>
+<p>In the tiny-model runs the SRNL memories moved 0.06 % per run, a third of the rest of the encoder and up to 75 times less than the attention head: at the shared encoder learning rate the self-modifying part was close to frozen. The final run gave the SRNL memories 5× the encoder learning rate. They then moved 1.24 %, more than the rest of the encoder (0.81 %) and 20 times more than before (Figure 4). The comparison is not entirely like for like: the final run starts from ImageNet weights rather than from a CT-trained model, so every part has more to learn.</p>
+</div>
+<figure>
+  <div class="plate"><img src="fig/srnl_drift.png" alt="Bar chart on a log scale: SRNL memories changed 0.06 percent in the tiny runs and 1.24 percent in the final run; rest of the encoder 0.17 to 0.81 percent; head 1.6 to 15 percent." loading="lazy"></div>
+  <figcaption><b>Figure 4.</b> Relative change of each parameter group between checkpoints (log scale).</figcaption>
+</figure>
+
+<h2><span class="num">5</span>Results</h2>
+<h3>Hemorrhage type</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Model (test, 1,417 scans)</th><th>EDH</th><th>SDH</th><th>tSAH</th><th>IVH</th><th>Contusion</th><th>Macro AUROC [95 % CI]</th><th>Macro AUPRC [95 % CI]</th></tr></thead>
+  <tbody>
+    <tr><td>e2e_vh, original slices</td><td>0.809</td><td>0.876</td><td>0.846</td><td>0.847</td><td>0.842</td><td>0.844 [0.82, 0.86]</td><td>0.729 [0.69, 0.76]</td></tr>
+    <tr><td>e2e_vh weights, new slices</td><td>0.813</td><td>0.878</td><td>0.835</td><td>0.821</td><td>0.831</td><td>0.835 [0.82, 0.85]</td><td>0.722 [0.68, 0.75]</td></tr>
+    <tr><td>e2e_vh_ft</td><td>0.810</td><td>0.875</td><td>0.836</td><td>0.846</td><td>0.832</td><td>0.840 [0.82, 0.86]</td><td>0.734 [0.69, 0.77]</td></tr>
+    <tr><td>e2e_vh_mt (multi-task)</td><td>0.806</td><td>0.870</td><td>0.835</td><td>0.858</td><td>0.828</td><td>0.840 [0.82, 0.86]</td><td>0.737 [0.70, 0.77]</td></tr>
+    <tr class="best"><td>VisionHOPE-small (final)</td><td>0.837</td><td>0.894</td><td>0.903</td><td>0.915</td><td>0.863</td><td>0.883 [0.87, 0.90]</td><td>0.786 [0.75, 0.81]</td></tr>
+  </tbody>
+  <caption>Per-type columns are AUROC. Confidence intervals come from a patient-clustered bootstrap (1,000 resamples). The final model's macro AUROC interval does not overlap those of the earlier models.</caption>
+</table></div>
+<div class="table-wrap col"><table>
+  <thead><tr><th>Final model, test</th><th>EDH</th><th>SDH</th><th>tSAH</th><th>IVH</th><th>Contusion</th><th>Macro</th></tr></thead>
+  <tbody>
+    <tr><td>Recall</td><td>0.47</td><td>0.76</td><td>0.67</td><td>0.67</td><td>0.75</td><td>0.67</td></tr>
+    <tr><td>Specificity</td><td>0.95</td><td>0.88</td><td>0.91</td><td>0.97</td><td>0.80</td><td>0.90</td></tr>
+    <tr><td>Precision</td><td>0.64</td><td>0.73</td><td>0.75</td><td>0.72</td><td>0.82</td><td>0.73</td></tr>
+    <tr><td>Balanced accuracy</td><td>0.71</td><td>0.82</td><td>0.79</td><td>0.82</td><td>0.78</td><td>0.78</td></tr>
+  </tbody>
+  <caption>At thresholds chosen on validation for maximum F1. A lower threshold trades specificity for recall; EDH is the class most often missed.</caption>
+</table></div>
+<div class="pair">
+  <figure><div class="plate"><img src="fig/macro_models.png" alt="Bar charts of macro AUROC and AUPRC with confidence intervals for five models; the final model is highest at 0.883 and 0.786." loading="lazy"></div>
+    <figcaption><b>Figure 5.</b> Macro AUROC and AUPRC with 95 % CIs.</figcaption></figure>
+  <figure><div class="plate"><img src="fig/per_class_models.png" alt="Grouped bar charts of per-type AUROC and AUPRC for five models." loading="lazy"></div>
+    <figcaption><b>Figure 6.</b> Per-type AUROC and AUPRC. The largest gains of the final model are in tSAH and IVH.</figcaption></figure>
+</div>
+<div class="pair">
+  <figure><div class="plate"><img src="fig/test_roc_pr.png" alt="ROC and precision-recall curves of the final model for the five hemorrhage types." loading="lazy"></div>
+    <figcaption><b>Figure 7.</b> ROC and precision-recall curves, final model, test set.</figcaption></figure>
+  <figure><div class="plate"><img src="fig/test_calibration.png" alt="Reliability diagrams of the final model for the five hemorrhage types." loading="lazy"></div>
+    <figcaption><b>Figure 8.</b> Calibration of the predicted probabilities, test set.</figcaption></figure>
+</div>
+<figure><div class="plate"><img src="fig/test_confusion.png" alt="Five 2-by-2 confusion matrices, one per hemorrhage type, final model." loading="lazy"></div>
+  <figcaption><b>Figure 9.</b> Confusion matrices at the validation F1 thresholds, final model, test set.</figcaption></figure>
+
+<h3>Where the model looks</h3>
+<div class="col"><p>Each gallery row is one validation scan: its four most-attended slices for the class with the Grad-CAM map overlaid, labelled true positive, false positive or false negative. Before the slice fix, false positives often rested on posterior-fossa and petrous slices and the map spread over the background. After it, attention stays on brain slices and the map stays inside the skull, often on the hematoma itself.</p></div>
+<div class="pair">
+  <figure class="tall"><div class="plate"><img src="fig/gallery_sdh_before.png" alt="Attention gallery for SDH before the slice fix, including skull-base slices." loading="lazy"></div>
+    <figcaption><b>Figure 10a.</b> SDH, original model and slice selection.</figcaption></figure>
+  <figure class="tall"><div class="plate"><img src="fig/gallery_sdh_after.png" alt="Attention gallery for SDH after the slice fix, Grad-CAM inside the skull." loading="lazy"></div>
+    <figcaption><b>Figure 10b.</b> SDH, after the anatomic trim.</figcaption></figure>
+</div>
+
+<h3>Midline shift, cisterns and the other findings</h3>
+<figure><div class="plate"><img src="fig/task_heads.png" alt="Dot plot of AUROC with confidence intervals for 17 binary outputs of the final model, with open markers for the tiny multi-task model." loading="lazy"></div>
+  <figcaption><b>Figure 11.</b> Binary outputs on the test set. Filled markers and intervals: final model; open markers: tiny multi-task model. The four Marshall components are in red. Every output improved except Marshall VI, which stays at 0.81.</figcaption></figure>
+<div class="table-wrap col"><table>
+  <thead><tr><th>Output (test AUROC)</th><th>Tiny multi-task</th><th>Final model</th></tr></thead>
+  <tbody>
+    <tr><td>Midline shift &gt; 5 mm</td><td>0.880</td><td>0.938</td></tr>
+    <tr><td>Midline shift &gt; 0</td><td>0.817</td><td>0.861</td></tr>
+    <tr><td>Cisterns compressed or worse</td><td>0.785</td><td>0.832</td></tr>
+    <tr><td>Cisterns effaced</td><td>0.753</td><td>0.864</td></tr>
+    <tr><td>Any pathology (Marshall ≥ II)</td><td>0.899</td><td>0.926</td></tr>
+    <tr><td>Hydrocephalus</td><td>0.696</td><td>0.847</td></tr>
+    <tr><td>Herniation</td><td>0.802</td><td>0.845</td></tr>
+    <tr><td>SDH right / left</td><td>0.823 / 0.854</td><td>0.859 / 0.884</td></tr>
+  </tbody>
+</table></div>
+<figure><div class="plate"><img src="fig/midline_shift.png" alt="Scatter of predicted against radiologist midline shift for the final model, and box plots of predicted shift by true group." loading="lazy"></div>
+  <figcaption><b>Figure 12.</b> Midline shift in millimetres, final model. Error on shifted scans is 2.8 mm (tiny model: 3.9 mm) and 3.7 mm for shifts above 5 mm (5.9 mm); correlation 0.79 (0.66). The 5× weight on shifted scans pulls large shifts up but also gives scans without shift small non-zero values, so the reported category (none, 0–5, &gt; 5 mm) comes from the yes/no heads rather than from the millimetre value.</figcaption></figure>
+
+<h3>Lesion volume without segmentation labels</h3>
+<div class="col"><p>No voxel masks exist, so lesion volume is measured from the image: voxels at least 20 HU brighter than the median brain of their slice and within 50–95 HU, excluding a 1.5 mm band along the bone and calcifications, grouped into 3D components of at least 0.2 cm³. The volume ranks scans by severity and finds the side of a unilateral SDH in 80–84 % of cases. It counts only hyperdense blood, so mixed-density lesions are underestimated, and it is used as an input to the Marshall VI decision rather than as a measurement on its own.</p></div>
+<figure><div class="plate"><img src="fig/lesion_volume.png" alt="Box plots of largest lesion volume on a log scale by Marshall category I to VI, with a dashed line at 25 cubic centimetres." loading="lazy"></div>
+  <figcaption><b>Figure 13.</b> Largest hyperdense lesion by radiologist Marshall category, test set. Median 0.9 cm³ in category I, 13.2 in IV and 11.8 in VI, below the 25 cm³ guideline line: the HU count misses the hypodense part of mixed lesions. Added to the final model's VI head it raises that head from AUROC 0.806 to 0.826.</figcaption></figure>
+
+<h3>Marshall CT score</h3>
+<div class="col"><p>Applied to the radiologist's own component labels, the guideline rule (VI if large lesion, else IV if shift above 5 mm, else III if cisterns compressed, else II if any pathology, else I) reproduces their Marshall score in 99 % of scans, so the decomposition is sound and the remaining error comes from the component predictions. The four rule thresholds are fitted together on validation to maximise quadratic kappa and then frozen.</p></div>
+<figure><div class="plate"><img src="fig/marshall_methods.png" alt="Dot plot of quadratic kappa with confidence intervals for six ways of computing the Marshall score; the final model is highest at 0.58." loading="lazy"></div>
+  <figcaption><b>Figure 14.</b> Agreement with the radiologist Marshall score on the test set (1,415 scans, category V excluded). The deployed rule on the final model plus lesion volume reaches kappa 0.58 [0.51, 0.67] and accuracy 0.66, against 0.51 and 0.56 for the same rule on the tiny model.</figcaption></figure>
+<figure><div class="plate"><img src="fig/marshall_confusion_small.png" alt="Confusion matrix of Marshall categories for the final model: recall 0.71, 0.70, 0.51, 0.47 and 0.39 for categories I, II, III, IV and VI." loading="lazy"></div>
+  <figcaption><b>Figure 15.</b> Marshall confusion for the deployed rule, final model, test set. Categories I and II are recognised in 70 % of scans; III, IV and VI in 39–51 %. Category VI is the weakest: a third of VI scans are called II, the same limit seen in the VI head and the lesion volume.</figcaption></figure>
+
+<h2><span class="num">6</span>From scan file to report</h2>
+<div class="col"><p><code>predict_scan.py</code> takes one NIfTI file and runs the full chain: header check, both slice selections, orientation fix, model, lesion volume, the Marshall rule with the thresholds saved from validation, and Grad-CAM for every positive finding on its most-attended slices. The output is a JSON report and one image per finding. Below is an abridged report for a test scan the radiologist read as SDH with contusion, 18 mm shift, compressed cisterns, Marshall VI.</p></div>
+<pre class="json">{
+  "model": "vh_small_final", "encoder": "visionhope_small",
+  "hemorrhage": {
+    "EDH": {"probability": 0.0995, "present": false},
+    "SDH": {"probability": 0.9981, "present": true},
+    "tSAH": {"probability": 0.4741, "present": false},
+    "Has_IVH": {"probability": 0.3653, "present": false},
+    "Contusion": {"probability": 0.906, "present": true}
+  },
+  "midline_shift": {"mm": 17.8, "probability_gt_5mm": 0.9958, "category": "&gt;5 mm"},
+  "cisterns": {"status": "compressed", "probability_compressed_or_worse": 0.8544, "probability_effaced": 0.2592},
+  "lesion_volume": {"total_cm3": 97.9, "largest_cm3": 96.6, "extra_axial_cm3": 97.9,
+                    "patient_right_cm3": 96.8, "patient_left_cm3": 1.1},
+  "marshall_ct": {"category": "VI"},
+  "gradcam": {"SDH": "gradcam_SDH.png", "mls_gt5": "gradcam_mls_gt5.png", "...": "..."},
+  "disclaimer": "Research model; not a medical device and not clinically validated."
+}</pre>
+<div class="col"><p>On this scan the report matches the radiologist on every reported finding, including the 18 mm shift (17.8 mm) and the compressed cisterns; the tiny model had added a false tSAH, called the cisterns effaced and given 11 mm. Two outputs are still off: the SDH laterality heads lean slightly to the left (0.77 vs 0.64) although the lesion volume puts 97 cm³ on the right, and hydrocephalus is flagged at a low calibrated threshold.</p></div>
+<figure><div class="plate"><img src="fig/example_gradcam_sdh.png" alt="Four axial slices with Grad-CAM over a large right-sided subdural hematoma." loading="lazy"></div>
+  <figcaption><b>Figure 16.</b> SDH evidence: the map covers the right-sided subdural collection (image left, radiological convention).</figcaption></figure>
+<div class="pair">
+  <figure><div class="plate"><img src="fig/example_gradcam_shift.png" alt="Four axial slices; Grad-CAM over the displaced septum and lateral ventricles." loading="lazy"></div>
+    <figcaption><b>Figure 17a.</b> Midline-shift evidence: the map sits on the displaced septum and ventricles. The tiny model's map for the same scan lit up an unrelated frontal region.</figcaption></figure>
+  <figure><div class="plate"><img src="fig/example_gradcam_cisterns.png" alt="Grad-CAM for the cistern output on the cistern-window slices." loading="lazy"></div>
+    <figcaption><b>Figure 17b.</b> Cistern evidence on the most-attended cistern-window slices.</figcaption></figure>
+</div>
+
+<h2><span class="num">7</span>Limitations</h2>
+<div class="col"><ul>
+  <li>Single institution and scanner family, mostly 5 mm slices, no external validation.</li>
+  <li>Labels are scan-level radiologist reads; attention and Grad-CAM are weak localization evidence, not segmentation.</li>
+  <li>Lesion volume comes from an HU rule without voxel ground truth and underestimates mixed-density lesions; Marshall VI remains the weakest category.</li>
+  <li>Midline shift in millimetres is reliable for shifted scans but gives small non-zero values for unshifted ones; use the shift category for decisions.</li>
+  <li>Laterality heads (AUROC 0.80–0.88) can disagree with the lesion volume on the side of a large collection.</li>
+  <li>EDH has the lowest recall (0.47 at the F1 threshold); rare outputs (EDH, IVH, effaced cisterns, hydrocephalus) have wide confidence intervals.</li>
+  <li>Marshall agreement is moderate (kappa 0.58); categories III, IV and VI are confused with their neighbours.</li>
+  <li>Not a medical device and not clinically validated.</li>
+</ul></div>
+
+<h2><span class="num">8</span>Reproduction</h2>
+<div class="col"><p class="small">All commands run in WSL2 under <code>env_wsl.sh</code>; data and outputs live on the D: drive.</p></div>
+<pre class="json">bash scripts/rebuild_data_wsl.sh          # slice cache, orientation, patient splits
+bash scripts/cistern_pipeline_wsl.sh      # lesion volumes, cistern-window cache (also trains cistern_vh)
+bash scripts/train_small_wsl.sh           # VisionHOPE-small, all outputs, both slice groups
+bash scripts/train_small_resume_wsl.sh    # resume, pick best checkpoint, evaluate, calibrate -> vh_small_final
+python predict_scan.py scan.nii.gz --out reports/
+python scripts/make_article_figures.py &amp;&amp; python scripts/bundle_article.py</pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<script>
+  try {
+    var dark = matchMedia("(prefers-color-scheme: dark)").matches;
+    mermaid.initialize({ startOnLoad: true, theme: dark ? "dark" : "neutral", flowchart: { useMaxWidth: true } });
+  } catch (e) { /* diagram stays as text */ }
+</script>
+<footer>Research code. Figures use de-identified image crops without scan identifiers. Not a medical device; not for clinical use.</footer>
+</div>

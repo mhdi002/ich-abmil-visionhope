@@ -1,0 +1,170 @@
+{
+ "seed": 42,
+ "paths": {
+  "nifti_root": "/mnt/d/All parts NIFTI files",
+  "nifti_subdirs": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9",
+   "10",
+   "11"
+  ],
+  "ct_label_xlsx": "/mnt/d/All parts NIFTI files/Stage_2_7_1_Remove_CTs_without_20_60_slices_17_Bahman_1404_ready (2).xlsx",
+  "patient_xlsx": "/mnt/d/All parts NIFTI files/patient_based_with_surgery_times_Age_Sex_ready_for_machine (2).xlsx",
+  "outputs": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs",
+  "manifest": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/scan_manifest.csv",
+  "splits": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/splits.csv",
+  "slice_cache": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/cache/slices",
+  "feature_cache": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/cache/features",
+  "plots": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/plots",
+  "tensorboard": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/tb",
+  "plots_train": "/mnt/d/All parts NIFTI files/ich_pipeline/outputs/plots/train/e2e_vh_ft"
+ },
+ "classes": [
+  "EDH",
+  "SDH",
+  "tSAH",
+  "Has_IVH",
+  "Contusion"
+ ],
+ "aux_target": "Has_Any ICH",
+ "preprocess": {
+  "workers": 6,
+  "cache_size": 256,
+  "windows": [
+   [
+    40,
+    80
+   ],
+   [
+    80,
+    200
+   ],
+   [
+    40,
+    40
+   ]
+  ],
+  "min_mask_area_cm2": 15.0,
+  "trim_mode": "anatomic",
+  "trim_base_frac": 0.45,
+  "trim_vertex_frac": 0.25,
+  "trim_base_bone_frac": 0.02,
+  "trim_hull_margin_mm": 2.0,
+  "trim_min_keep": 8,
+  "trim_max_frac": 0.4,
+  "orient_thumb_fracs": [
+   0.05,
+   0.3,
+   0.6
+  ],
+  "mask_dilation_mm": 6.0,
+  "bone_hu": 300,
+  "soft_hu": [
+   -20,
+   140
+  ],
+  "crop_margin": 0.04,
+  "hu_hist_bins": [
+   -20,
+   0,
+   10,
+   20,
+   30,
+   40,
+   50,
+   60,
+   70,
+   80,
+   90,
+   100,
+   140
+  ]
+ },
+ "splits": {
+  "fractions": [
+   0.7,
+   0.15,
+   0.15
+  ],
+  "n_folds": 5
+ },
+ "encoder": {
+  "name": "visionhope_tiny",
+  "checkpoint": "weights/visionhope_tiny.pth",
+  "input_size": 224,
+  "grad_checkpointing": true,
+  "freeze_norm": true
+ },
+ "model": {
+  "pooling": "abmil",
+  "attention": "per_class",
+  "srnl_context": false,
+  "proj_dim": 256,
+  "attn_dim": 128,
+  "dropout": 0.25
+ },
+ "loss": {
+  "name": "asl",
+  "asl_gamma_neg": 2.0,
+  "asl_gamma_pos": 0.0,
+  "asl_clip": 0.05,
+  "focal_gamma": 2.0,
+  "use_pos_weight": true,
+  "aux_weight": 0.2
+ },
+ "train": {
+  "stage": "A",
+  "balanced_sampler": true,
+  "amp": true,
+  "ema_decay": 0.999,
+  "stage_a": {
+   "epochs": 60,
+   "batch_size": 32,
+   "lr_head": 0.0003,
+   "weight_decay": 0.0001,
+   "warmup_epochs": 2,
+   "patience": 12
+  },
+  "stage_b": {
+   "epochs": 8,
+   "bags_per_step": 4,
+   "slice_budget": 60,
+   "grad_checkpointing": true,
+   "grad_accum": 4,
+   "lr_backbone": 5e-06,
+   "lr_head": 3e-05,
+   "weight_decay": 0.05,
+   "warmup_epochs": 0.5,
+   "patience": 3,
+   "max_val_scans": null
+  },
+  "attn_snapshot_every": 2,
+  "num_workers": 4
+ },
+ "augment": {
+  "rotate_deg": 10,
+  "scale": [
+   0.9,
+   1.1
+  ],
+  "translate": 0.06,
+  "contrast": 0.1,
+  "brightness": 0.05,
+  "noise_std": 0.02
+ },
+ "eval": {
+  "n_bootstrap": 1000,
+  "spec_target": 0.9,
+  "threshold_mode": "f1",
+  "target_recall": 0.8,
+  "topk_slices": 4
+ },
+ "phase6_self_training": false
+}

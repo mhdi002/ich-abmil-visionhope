@@ -1,0 +1,72 @@
+partial load: 0 per-slot tensors extended [], 0 new tensors []
+[stage B] encoder + head initialized from /mnt/d/All parts NIFTI files/ich_pipeline/outputs/runs/vh_small_all_e6/best.pt (stage B, epoch 6)
+[stage B] multi-task: 17 binary ['mls_any', 'mls_gt5', 'cist_compressed', 'cist_effaced', 'marshall_ge2', 'marshall_vi', 'mass_effect', 'herniation', 'edema', 'hydrocephalus', 'skull_fx', 'sdh_right', 'sdh_left', 'edh_right', 'edh_left', 'contusion_right', 'contusion_left'], regression ['mls_mm']
+[stage B] run=vh_small_all_r encoder=visionhope_small train=6608 val=1406 train-eval subset=1000
+[stage B] encoder params: 50.5 M at lr 3.0e-06, SRNL 1.36 M at lr 1.5e-05
+  epoch 1 step 62/826 loss 0.4037 481s peak 4.6 GiB
+  epoch 1 step 124/826 loss 0.3490 960s peak 4.6 GiB
+  epoch 1 step 186/826 loss 0.3699 1431s peak 4.6 GiB
+  epoch 1 step 248/826 loss 0.3866 1901s peak 4.6 GiB
+  epoch 1 step 310/826 loss 0.3763 2376s peak 4.6 GiB
+  epoch 1 step 372/826 loss 0.3724 2847s peak 4.6 GiB
+  epoch 1 step 434/826 loss 0.3825 3326s peak 4.6 GiB
+  epoch 1 step 496/826 loss 0.3870 3789s peak 4.6 GiB
+  epoch 1 step 558/826 loss 0.3951 4261s peak 4.6 GiB
+  epoch 1 step 620/826 loss 0.3996 4734s peak 4.6 GiB
+  epoch 1 step 682/826 loss 0.3976 5204s peak 4.6 GiB
+  epoch 1 step 744/826 loss 0.3935 5679s peak 4.6 GiB
+  epoch 1 step 806/826 loss 0.3882 6148s peak 4.6 GiB
+epoch   1 | loss 0.3885/0.6953 | AUROC train 0.9486 val 0.8856 | AUPRC train 0.8968 val 0.7701 | ent 0.787 peak 0.187 | gn 24.69 lr 4.68e-05
+   @0.5 acc train 0.894 val 0.848 (bal 0.799) | recall train 0.849 val 0.732 | val prec 0.671 spec 0.866
+   val AUROC/AUPRC EDH=0.891/0.754 SDH=0.885/0.836 tSAH=0.900/0.805 Has_IVH=0.886/0.569 Contusion=0.866/0.886
+   val acc/recall@0.5 EDH=0.898/0.688 SDH=0.833/0.728 tSAH=0.840/0.784 Has_IVH=0.898/0.640 Contusion=0.770/0.822
+   val tasks AUROC/AUPRC mls_any=0.866/0.713 mls_gt5=0.964/0.795 cist_compressed=0.829/0.582 cist_effaced=0.832/0.391 marshall_ge2=0.898/0.980 marshall_vi=0.886/0.364 mass_effect=0.775/0.654 herniation=0.880/0.442 edema=0.807/0.810 hydrocephalus=0.822/0.246 skull_fx=0.717/0.706 sdh_right=0.834/0.536 sdh_left=0.847/0.497 edh_right=0.846/0.355 edh_left=0.857/0.438 contusion_right=0.801/0.688 contusion_left=0.827/0.741
+   val mls_mm: MAE 0.90, MAE on positives 3.06, r 0.809
+   selection: 0.5 x (class AUPRC 0.7701 + task AUPRC 0.5845) = 0.6773
+   learned loss weights: classes 1.082, binary tasks 1.414, regression 1.414
+  epoch time 6857s
+  epoch 2 step 62/826 loss 0.3064 487s peak 4.6 GiB
+  epoch 2 step 124/826 loss 0.3187 954s peak 4.6 GiB
+  epoch 2 step 186/826 loss 0.2985 1425s peak 4.6 GiB
+  epoch 2 step 248/826 loss 0.3027 1900s peak 4.6 GiB
+  epoch 2 step 310/826 loss 0.2996 2373s peak 4.6 GiB
+  epoch 2 step 372/826 loss 0.2871 2851s peak 4.6 GiB
+  epoch 2 step 434/826 loss 0.2866 3319s peak 4.6 GiB
+  epoch 2 step 496/826 loss 0.2836 3792s peak 4.6 GiB
+  epoch 2 step 558/826 loss 0.2803 4265s peak 4.6 GiB
+  epoch 2 step 620/826 loss 0.2727 4733s peak 4.6 GiB
+  epoch 2 step 682/826 loss 0.2701 5206s peak 4.6 GiB
+  epoch 2 step 744/826 loss 0.2683 5674s peak 4.6 GiB
+  epoch 2 step 806/826 loss 0.2696 6146s peak 4.6 GiB
+epoch   2 | loss 0.2669/0.6922 | AUROC train 0.9504 val 0.8855 | AUPRC train 0.9005 val 0.7701 | ent 0.784 peak 0.190 | gn 24.31 lr 1.59e-05
+   @0.5 acc train 0.895 val 0.847 (bal 0.800) | recall train 0.855 val 0.735 | val prec 0.672 spec 0.865
+   val AUROC/AUPRC EDH=0.891/0.755 SDH=0.884/0.835 tSAH=0.900/0.806 Has_IVH=0.886/0.569 Contusion=0.865/0.886
+   val acc/recall@0.5 EDH=0.900/0.692 SDH=0.831/0.726 tSAH=0.842/0.782 Has_IVH=0.898/0.654 Contusion=0.765/0.819
+   val tasks AUROC/AUPRC mls_any=0.867/0.714 mls_gt5=0.964/0.795 cist_compressed=0.830/0.583 cist_effaced=0.832/0.393 marshall_ge2=0.898/0.980 marshall_vi=0.886/0.363 mass_effect=0.775/0.655 herniation=0.881/0.442 edema=0.808/0.810 hydrocephalus=0.823/0.252 skull_fx=0.718/0.706 sdh_right=0.834/0.536 sdh_left=0.848/0.499 edh_right=0.845/0.355 edh_left=0.859/0.444 contusion_right=0.800/0.688 contusion_left=0.827/0.743
+   val mls_mm: MAE 0.91, MAE on positives 3.05, r 0.809
+   selection: 0.5 x (class AUPRC 0.7701 + task AUPRC 0.5857) = 0.6779
+   learned loss weights: classes 1.089, binary tasks 1.426, regression 1.426
+  epoch time 6848s
+  epoch 3 step 62/826 loss 0.2165 473s peak 4.6 GiB
+  epoch 3 step 124/826 loss 0.2125 950s peak 4.6 GiB
+  epoch 3 step 186/826 loss 0.2106 1425s peak 4.6 GiB
+  epoch 3 step 248/826 loss 0.2022 1899s peak 4.6 GiB
+  epoch 3 step 310/826 loss 0.2085 2373s peak 4.6 GiB
+  epoch 3 step 372/826 loss 0.2048 2852s peak 4.6 GiB
+  epoch 3 step 434/826 loss 0.1980 3327s peak 4.6 GiB
+  epoch 3 step 496/826 loss 0.2002 3799s peak 4.6 GiB
+  epoch 3 step 558/826 loss 0.2037 4271s peak 4.6 GiB
+  epoch 3 step 620/826 loss 0.1993 4749s peak 4.6 GiB
+  epoch 3 step 682/826 loss 0.1931 5221s peak 4.6 GiB
+  epoch 3 step 744/826 loss 0.1908 5701s peak 4.6 GiB
+  epoch 3 step 806/826 loss 0.1936 6173s peak 4.6 GiB
+epoch   3 | loss 0.1943/0.6925 | AUROC train 0.9521 val 0.8849 | AUPRC train 0.9039 val 0.7692 | ent 0.781 peak 0.194 | gn 23.93 lr 0.00e+00
+   @0.5 acc train 0.897 val 0.848 (bal 0.800) | recall train 0.857 val 0.735 | val prec 0.673 spec 0.865
+   val AUROC/AUPRC EDH=0.891/0.754 SDH=0.883/0.833 tSAH=0.900/0.806 Has_IVH=0.886/0.568 Contusion=0.865/0.886
+   val acc/recall@0.5 EDH=0.900/0.692 SDH=0.831/0.722 tSAH=0.841/0.782 Has_IVH=0.898/0.654 Contusion=0.767/0.824
+   val tasks AUROC/AUPRC mls_any=0.867/0.714 mls_gt5=0.964/0.795 cist_compressed=0.830/0.583 cist_effaced=0.832/0.394 marshall_ge2=0.899/0.980 marshall_vi=0.885/0.360 mass_effect=0.775/0.655 herniation=0.881/0.442 edema=0.808/0.811 hydrocephalus=0.824/0.261 skull_fx=0.719/0.706 sdh_right=0.834/0.537 sdh_left=0.848/0.499 edh_right=0.846/0.353 edh_left=0.858/0.441 contusion_right=0.800/0.689 contusion_left=0.827/0.744
+   val mls_mm: MAE 0.91, MAE on positives 3.05, r 0.809
+   selection: 0.5 x (class AUPRC 0.7692 + task AUPRC 0.5860) = 0.6776
+   learned loss weights: classes 1.097, binary tasks 1.436, regression 1.437
+  epoch time 6875s
+[stage B] done. best epoch 2 val macro AUPRC 0.6779

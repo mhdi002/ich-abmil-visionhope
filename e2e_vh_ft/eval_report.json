@@ -1,0 +1,1788 @@
+{
+ "run": "e2e_vh_ft",
+ "stage": "B",
+ "best_epoch": 8,
+ "encoder": "visionhope_tiny",
+ "threshold_mode": "f1",
+ "target_recall": 0.8,
+ "pooling": "abmil",
+ "attention": "per_class",
+ "srnl": false,
+ "loss": "asl",
+ "thresholds": {
+  "EDH": 0.5101491659879684,
+  "SDH": 0.39125429913401605,
+  "tSAH": 0.5291724309325218,
+  "Has_IVH": 0.5800708293914804,
+  "Contusion": 0.5444892719388008
+ },
+ "splits": {
+  "train": {
+   "n": 6608,
+   "metrics": {
+    "EDH": {
+     "auroc": 0.9481679108256891,
+     "auprc": 0.8444688664971128,
+     "f1": 0.7515095215977705,
+     "recall_at_spec": 0.8403041825095057,
+     "accuracy": 0.9190375302663438,
+     "balanced_accuracy": 0.8582278056538747,
+     "recall": 0.7690114068441065,
+     "precision": 0.734786557674841,
+     "specificity": 0.9474442044636429
+    },
+    "SDH": {
+     "auroc": 0.9413146379861126,
+     "auprc": 0.9094398900009247,
+     "f1": 0.7785567010309279,
+     "recall_at_spec": 0.8245363766048502,
+     "accuracy": 0.8374697336561744,
+     "balanced_accuracy": 0.8535440359762994,
+     "recall": 0.8977650974797908,
+     "precision": 0.6872952311612668,
+     "specificity": 0.809322974472808
+    },
+    "tSAH": {
+     "auroc": 0.9339517778484093,
+     "auprc": 0.8741374756405849,
+     "f1": 0.7900028727377191,
+     "recall_at_spec": 0.826189078097475,
+     "accuracy": 0.8893765133171913,
+     "balanced_accuracy": 0.8626188240096777,
+     "recall": 0.8073987081620669,
+     "precision": 0.7733408323959505,
+     "specificity": 0.9178389398572885
+    },
+    "Has_IVH": {
+     "auroc": 0.9767476480855763,
+     "auprc": 0.894406169305304,
+     "f1": 0.8207754206291149,
+     "recall_at_spec": 0.9279538904899135,
+     "accuracy": 0.9629237288135594,
+     "balanced_accuracy": 0.8947096178754268,
+     "recall": 0.80835734870317,
+     "precision": 0.8335809806835067,
+     "specificity": 0.9810618870476835
+    },
+    "Contusion": {
+     "auroc": 0.9302004049579062,
+     "auprc": 0.9455374476049256,
+     "f1": 0.8604184580108913,
+     "recall_at_spec": 0.8235126672359806,
+     "accuracy": 0.8526029055690073,
+     "balanced_accuracy": 0.8524720780925866,
+     "recall": 0.8545402789638485,
+     "precision": 0.8663780663780664,
+     "specificity": 0.8504038772213247
+    },
+    "macro": {
+     "auroc": 0.9460764759407387,
+     "auprc": 0.8935979698097704,
+     "f1": 0.8002525948012847,
+     "recall_at_spec": 0.848499238987545,
+     "accuracy": 0.8922820823244552,
+     "balanced_accuracy": 0.864314472321573,
+     "recall": 0.8274145680305965,
+     "precision": 0.7790763336587263,
+     "specificity": 0.9012143766125496
+    }
+   },
+   "ci95": {
+    "EDH": {
+     "auroc": [
+      0.9375830112520886,
+      0.9561884587930934
+     ],
+     "auprc": [
+      0.8173016963471113,
+      0.8708451586928238
+     ],
+     "f1": [
+      0.7240840619961635,
+      0.7765273946870715
+     ],
+     "recall_at_spec": [
+      0.8059015065688788,
+      0.8665522572027309
+     ],
+     "accuracy": [
+      0.9096482824933095,
+      0.9267835221900096
+     ],
+     "balanced_accuracy": [
+      0.8410118559266877,
+      0.8736709938906908
+     ],
+     "recall": [
+      0.7351071839009982,
+      0.8017032026362536
+     ],
+     "precision": [
+      0.699608842897138,
+      0.7697848202693931
+     ],
+     "specificity": [
+      0.9406858160011714,
+      0.9547422860637035
+     ]
+    },
+    "SDH": {
+     "auroc": [
+      0.9319514589284071,
+      0.9497953867063438
+     ],
+     "auprc": [
+      0.8957156047790958,
+      0.9249273857133654
+     ],
+     "f1": [
+      0.7593899185378108,
+      0.7988287692032814
+     ],
+     "recall_at_spec": [
+      0.7967148363995104,
+      0.8540939906363872
+     ],
+     "accuracy": [
+      0.8246504396761652,
+      0.8494095470853459
+     ],
+     "balanced_accuracy": [
+      0.8408100906390448,
+      0.8651181357751122
+     ],
+     "recall": [
+      0.8805045404512933,
+      0.9140793630183677
+     ],
+     "precision": [
+      0.6631491638457772,
+      0.7145789300951756
+     ],
+     "specificity": [
+      0.7921441735251397,
+      0.8261404134932312
+     ]
+    },
+    "tSAH": {
+     "auroc": [
+      0.9230295763129166,
+      0.9421085400503377
+     ],
+     "auprc": [
+      0.8541409308677006,
+      0.8917633269358526
+     ],
+     "f1": [
+      0.7681918331152177,
+      0.8084147968467651
+     ],
+     "recall_at_spec": [
+      0.7986808693232805,
+      0.8494366924161181
+     ],
+     "accuracy": [
+      0.8797989269106646,
+      0.8994223916951153
+     ],
+     "balanced_accuracy": [
+      0.8478673358737814,
+      0.8744492573604579
+     ],
+     "recall": [
+      0.7786473977054508,
+      0.8290043746514222
+     ],
+     "precision": [
+      0.7456187860446954,
+      0.7982651050012053
+     ],
+     "specificity": [
+      0.9073159151157841,
+      0.9266281165384337
+     ]
+    },
+    "Has_IVH": {
+     "auroc": [
+      0.9704795344289826,
+      0.9819118760850062
+     ],
+     "auprc": [
+      0.8695655741612416,
+      0.9144545231252527
+     ],
+     "f1": [
+      0.7930043869425505,
+      0.8461353823525425
+     ],
+     "recall_at_spec": [
+      0.9085778901869471,
+      0.9504290353265327
+     ],
+     "accuracy": [
+      0.9580116180389687,
+      0.9678837252189949
+     ],
+     "balanced_accuracy": [
+      0.8780614592550747,
+      0.9107190863781982
+     ],
+     "recall": [
+      0.7751479421579532,
+      0.8413486613351878
+     ],
+     "precision": [
+      0.8002697598644077,
+      0.8679211807191082
+     ],
+     "specificity": [
+      0.9773956741880832,
+      0.9849996331060753
+     ]
+    },
+    "Contusion": {
+     "auroc": [
+      0.9225899858726476,
+      0.937951920908703
+     ],
+     "auprc": [
+      0.9376340939794052,
+      0.9519051415266944
+     ],
+     "f1": [
+      0.8489789730891397,
+      0.8715421345117973
+     ],
+     "recall_at_spec": [
+      0.8013117497688728,
+      0.8422395222641788
+     ],
+     "accuracy": [
+      0.8426230025161492,
+      0.8624569675198324
+     ],
+     "balanced_accuracy": [
+      0.8417706708631248,
+      0.8616429442645381
+     ],
+     "recall": [
+      0.8399186121837081,
+      0.8693441126028133
+     ],
+     "precision": [
+      0.8520852567356301,
+      0.879908661588024
+     ],
+     "specificity": [
+      0.836399202389116,
+      0.8626443132415531
+     ]
+    },
+    "macro": {
+     "auroc": [
+      0.9415769177908148,
+      0.9499086257065591
+     ],
+     "auprc": [
+      0.8846742458899723,
+      0.9025110637131899
+     ],
+     "f1": [
+      0.7889732775444233,
+      0.8114242341643912
+     ],
+     "recall_at_spec": [
+      0.8369490126522267,
+      0.8599619334445645
+     ],
+     "accuracy": [
+      0.8878440006656291,
+      0.8968933014796922
+     ],
+     "balanced_accuracy": [
+      0.8578350564741243,
+      0.8707234670833328
+     ],
+     "recall": [
+      0.8149974386058365,
+      0.8375224562842347
+     ],
+     "precision": [
+      0.7642505212377895,
+      0.7938169265956664
+     ],
+     "specificity": [
+      0.8955248328433144,
+      0.9071139076344157
+     ]
+    }
+   }
+  },
+  "val": {
+   "n": 1406,
+   "metrics": {
+    "EDH": {
+     "auroc": 0.8467686198140405,
+     "auprc": 0.6681393020362248,
+     "f1": 0.625,
+     "recall_at_spec": 0.6561085972850679,
+     "accuracy": 0.8847795163584637,
+     "balanced_accuracy": 0.7733623537048705,
+     "recall": 0.6108597285067874,
+     "precision": 0.6398104265402843,
+     "specificity": 0.9358649789029536
+    },
+    "SDH": {
+     "auroc": 0.8516596946813713,
+     "auprc": 0.7985602338865091,
+     "f1": 0.7126654064272212,
+     "recall_at_spec": 0.6455696202531646,
+     "accuracy": 0.7837837837837838,
+     "balanced_accuracy": 0.786627822748592,
+     "recall": 0.7953586497890295,
+     "precision": 0.6455479452054794,
+     "specificity": 0.7778969957081545
+    },
+    "tSAH": {
+     "auroc": 0.8609806542174703,
+     "auprc": 0.747138976029741,
+     "f1": 0.6925,
+     "recall_at_spec": 0.6340852130325815,
+     "accuracy": 0.8250355618776671,
+     "balanced_accuracy": 0.7855487776043883,
+     "recall": 0.6942355889724311,
+     "precision": 0.6907730673316709,
+     "specificity": 0.8768619662363456
+    },
+    "Has_IVH": {
+     "auroc": 0.7991025937934229,
+     "auprc": 0.46187597419192017,
+     "f1": 0.4497991967871486,
+     "recall_at_spec": 0.5294117647058824,
+     "accuracy": 0.9025604551920341,
+     "balanced_accuracy": 0.6834414080592868,
+     "recall": 0.4117647058823529,
+     "precision": 0.49557522123893805,
+     "specificity": 0.9551181102362205
+    },
+    "Contusion": {
+     "auroc": 0.8277425112258259,
+     "auprc": 0.849587112145193,
+     "f1": 0.7511864406779661,
+     "recall_at_spec": 0.5881523272214386,
+     "accuracy": 0.7389758179231863,
+     "balanced_accuracy": 0.738610769912561,
+     "recall": 0.7813822284908322,
+     "precision": 0.7232375979112271,
+     "specificity": 0.6958393113342898
+    },
+    "macro": {
+     "auroc": 0.8372508147464262,
+     "auprc": 0.7050603196579177,
+     "f1": 0.6462302087784672,
+     "recall_at_spec": 0.610665504499627,
+     "accuracy": 0.827027027027027,
+     "balanced_accuracy": 0.7535182264059397,
+     "recall": 0.6587201803282866,
+     "precision": 0.63898885164552,
+     "specificity": 0.8483162724835929
+    }
+   },
+   "ci95": {
+    "EDH": {
+     "auroc": [
+      0.7957626915929227,
+      0.8936771793730606
+     ],
+     "auprc": [
+      0.5671851366042514,
+      0.7568810631720123
+     ],
+     "f1": [
+      0.5377598772271504,
+      0.6998031668270492
+     ],
+     "recall_at_spec": [
+      0.558440373495118,
+      0.7490731939163497
+     ],
+     "accuracy": [
+      0.8600707455113193,
+      0.9092226106744654
+     ],
+     "balanced_accuracy": [
+      0.7243188840189883,
+      0.8217962400766722
+     ],
+     "recall": [
+      0.5114986763408177,
+      0.7061611374407583
+     ],
+     "precision": [
+      0.5259628759543754,
+      0.7371187467338116
+     ],
+     "specificity": [
+      0.914302357842351,
+      0.9556139117068398
+     ]
+    },
+    "SDH": {
+     "auroc": [
+      0.8154563511687751,
+      0.8853189380584433
+     ],
+     "auprc": [
+      0.739020472718481,
+      0.8520887103768598
+     ],
+     "f1": [
+      0.6647647647647648,
+      0.7585003728901268
+     ],
+     "recall_at_spec": [
+      0.5599945652173913,
+      0.7326738580779318
+     ],
+     "accuracy": [
+      0.7531680854467808,
+      0.8150770766573363
+     ],
+     "balanced_accuracy": [
+      0.7541480143972187,
+      0.8188981542735997
+     ],
+     "recall": [
+      0.7424551805554136,
+      0.8453407741750594
+     ],
+     "precision": [
+      0.5810054907343858,
+      0.7054940987238757
+     ],
+     "specificity": [
+      0.7392668375323032,
+      0.8147306843715229
+     ]
+    },
+    "tSAH": {
+     "auroc": [
+      0.8278675708956196,
+      0.8949886313524433
+     ],
+     "auprc": [
+      0.6725597334581547,
+      0.8165371870656571
+     ],
+     "f1": [
+      0.6276791907514451,
+      0.749479357075323
+     ],
+     "recall_at_spec": [
+      0.5526871084734586,
+      0.7323345669640033
+     ],
+     "accuracy": [
+      0.7984393147019573,
+      0.8530912763297105
+     ],
+     "balanced_accuracy": [
+      0.749488039577393,
+      0.8223644006913234
+     ],
+     "recall": [
+      0.6276329434711243,
+      0.7628690547584998
+     ],
+     "precision": [
+      0.6149571583420794,
+      0.7589069207906779
+     ],
+     "specificity": [
+      0.8479143304824308,
+      0.9049506996154161
+     ]
+    },
+    "Has_IVH": {
+     "auroc": [
+      0.7430373536551306,
+      0.861033858642774
+     ],
+     "auprc": [
+      0.3290522188319186,
+      0.6110461320041369
+     ],
+     "f1": [
+      0.32692940088377354,
+      0.566932150722539
+     ],
+     "recall_at_spec": [
+      0.41133780238997375,
+      0.6774546738874498
+     ],
+     "accuracy": [
+      0.8751685260261001,
+      0.928422093519576
+     ],
+     "balanced_accuracy": [
+      0.6239687901603929,
+      0.7533498790815374
+     ],
+     "recall": [
+      0.29266512373152925,
+      0.5524575018477457
+     ],
+     "precision": [
+      0.35286764705882356,
+      0.6500290697674419
+     ],
+     "specificity": [
+      0.9347630901114242,
+      0.9726178213345819
+     ]
+    },
+    "Contusion": {
+     "auroc": [
+      0.797098657775383,
+      0.856542177223803
+     ],
+     "auprc": [
+      0.8082740828997551,
+      0.8830477746701549
+     ],
+     "f1": [
+      0.7100122575263129,
+      0.7878913617502828
+     ],
+     "recall_at_spec": [
+      0.5071519134311723,
+      0.6692281535995952
+     ],
+     "accuracy": [
+      0.7075880108963386,
+      0.7710119727502652
+     ],
+     "balanced_accuracy": [
+      0.7084274736986138,
+      0.7690925499003181
+     ],
+     "recall": [
+      0.7351121236431096,
+      0.8226691642651297
+     ],
+     "precision": [
+      0.6652197242533378,
+      0.7736114985622582
+     ],
+     "specificity": [
+      0.6476812217173197,
+      0.7429077946691883
+     ]
+    },
+    "macro": {
+     "auroc": [
+      0.8167874419696652,
+      0.8584347488654027
+     ],
+     "auprc": [
+      0.6631483754788142,
+      0.7486529237948888
+     ],
+     "f1": [
+      0.6106685587282632,
+      0.6796758344720703
+     ],
+     "recall_at_spec": [
+      0.5699667238632395,
+      0.6616519233291729
+     ],
+     "accuracy": [
+      0.8141715780323735,
+      0.8411744890623396
+     ],
+     "balanced_accuracy": [
+      0.7347434025768628,
+      0.7754128117019929
+     ],
+     "recall": [
+      0.6202087484827975,
+      0.7015534267172951
+     ],
+     "precision": [
+      0.5991821278604159,
+      0.6779609310228342
+     ],
+     "specificity": [
+      0.829736314948754,
+      0.865850479130525
+     ]
+    }
+   }
+  },
+  "test": {
+   "n": 1417,
+   "metrics": {
+    "EDH": {
+     "auroc": 0.8102718282176179,
+     "auprc": 0.5872291915708074,
+     "f1": 0.5406698564593302,
+     "recall_at_spec": 0.5700934579439252,
+     "accuracy": 0.8645024700070572,
+     "balanced_accuracy": 0.7261965802005889,
+     "recall": 0.5280373831775701,
+     "precision": 0.553921568627451,
+     "specificity": 0.9243557772236076
+    },
+    "SDH": {
+     "auroc": 0.8752112319044668,
+     "auprc": 0.7894850208864678,
+     "f1": 0.6960690316395014,
+     "recall_at_spec": 0.6859122401847575,
+     "accuracy": 0.776287932251235,
+     "balanced_accuracy": 0.7936604611427176,
+     "recall": 0.8383371824480369,
+     "precision": 0.5950819672131148,
+     "specificity": 0.7489837398373984
+    },
+    "tSAH": {
+     "auroc": 0.836290353227308,
+     "auprc": 0.7423424950184182,
+     "f1": 0.6564705882352941,
+     "recall_at_spec": 0.5872641509433962,
+     "accuracy": 0.7939308398023994,
+     "balanced_accuracy": 0.7549913070740466,
+     "recall": 0.6580188679245284,
+     "precision": 0.6549295774647887,
+     "specificity": 0.851963746223565
+    },
+    "Has_IVH": {
+     "auroc": 0.8456956041023296,
+     "auprc": 0.6642141404388936,
+     "f1": 0.60625,
+     "recall_at_spec": 0.6785714285714286,
+     "accuracy": 0.9110797459421313,
+     "balanced_accuracy": 0.7666728620992032,
+     "recall": 0.5773809523809523,
+     "precision": 0.6381578947368421,
+     "specificity": 0.955964771817454
+    },
+    "Contusion": {
+     "auroc": 0.8317759832450611,
+     "auprc": 0.8866139164427524,
+     "f1": 0.769811320754717,
+     "recall_at_spec": 0.6368286445012787,
+     "accuracy": 0.7417078334509527,
+     "balanced_accuracy": 0.7369736391646696,
+     "recall": 0.782608695652174,
+     "precision": 0.7574257425742574,
+     "specificity": 0.6913385826771653
+    },
+    "macro": {
+     "auroc": 0.8398490001393567,
+     "auprc": 0.7339769528714679,
+     "f1": 0.6538541594177685,
+     "recall_at_spec": 0.6317339844289572,
+     "accuracy": 0.8175017642907552,
+     "balanced_accuracy": 0.7556989699362452,
+     "recall": 0.6768766163166523,
+     "precision": 0.6399033501232909,
+     "specificity": 0.8345213235558381
+    }
+   },
+   "ci95": {
+    "EDH": {
+     "auroc": [
+      0.7543353253876731,
+      0.8557050386769679
+     ],
+     "auprc": [
+      0.4669759563575067,
+      0.6884500603067383
+     ],
+     "f1": [
+      0.44019138755980863,
+      0.6221294363256785
+     ],
+     "recall_at_spec": [
+      0.4515901862789641,
+      0.6683632038519594
+     ],
+     "accuracy": [
+      0.8334391497161543,
+      0.8895682267633488
+     ],
+     "balanced_accuracy": [
+      0.670297100477265,
+      0.7787579044839451
+     ],
+     "recall": [
+      0.4169893497757847,
+      0.6305927190625467
+     ],
+     "precision": [
+      0.4437879374919282,
+      0.650054347826087
+     ],
+     "specificity": [
+      0.9007317950131412,
+      0.9437019802196787
+     ]
+    },
+    "SDH": {
+     "auroc": [
+      0.8441544071567337,
+      0.9054156848640349
+     ],
+     "auprc": [
+      0.7247901269809665,
+      0.8421179316127441
+     ],
+     "f1": [
+      0.6388899282187185,
+      0.7425977972437013
+     ],
+     "recall_at_spec": [
+      0.602534965034965,
+      0.7528113719080094
+     ],
+     "accuracy": [
+      0.745041895967416,
+      0.8071030640668524
+     ],
+     "balanced_accuracy": [
+      0.7625145042611848,
+      0.8226702418734746
+     ],
+     "recall": [
+      0.7871283661979643,
+      0.88322983014862
+     ],
+     "precision": [
+      0.5269069561595334,
+      0.6559498392282959
+     ],
+     "specificity": [
+      0.7098731683970253,
+      0.7893214118382009
+     ]
+    },
+    "tSAH": {
+     "auroc": [
+      0.7986435129374011,
+      0.8664897028336204
+     ],
+     "auprc": [
+      0.6667436851532437,
+      0.7990172719579135
+     ],
+     "f1": [
+      0.5924807816537468,
+      0.7076141244297119
+     ],
+     "recall_at_spec": [
+      0.4947061347061347,
+      0.6550135348522446
+     ],
+     "accuracy": [
+      0.7628231294079809,
+      0.8217554905687378
+     ],
+     "balanced_accuracy": [
+      0.7159618021910084,
+      0.7874010773171636
+     ],
+     "recall": [
+      0.5847541617204538,
+      0.718948356885197
+     ],
+     "precision": [
+      0.5769176136363636,
+      0.7247981301525349
+     ],
+     "specificity": [
+      0.8177773567960483,
+      0.8810710465566003
+     ]
+    },
+    "Has_IVH": {
+     "auroc": [
+      0.7846831237488024,
+      0.8971074473946189
+     ],
+     "auprc": [
+      0.5437924053792478,
+      0.7665702546154133
+     ],
+     "f1": [
+      0.49782151842533673,
+      0.7052031083297504
+     ],
+     "recall_at_spec": [
+      0.55899209486166,
+      0.7791411042944786
+     ],
+     "accuracy": [
+      0.8876773373280127,
+      0.9330535389486977
+     ],
+     "balanced_accuracy": [
+      0.7050347475938249,
+      0.8226559664989925
+     ],
+     "recall": [
+      0.45329518072289154,
+      0.6904788597053171
+     ],
+     "precision": [
+      0.506281505544976,
+      0.7619654231119198
+     ],
+     "specificity": [
+      0.9389854629083983,
+      0.9716828478964401
+     ]
+    },
+    "Contusion": {
+     "auroc": [
+      0.7997752386243027,
+      0.8614981313475261
+     ],
+     "auprc": [
+      0.8570751977468443,
+      0.9116971729514646
+     ],
+     "f1": [
+      0.7328945986496624,
+      0.8028352232151033
+     ],
+     "recall_at_spec": [
+      0.5777727075184702,
+      0.6916339580578794
+     ],
+     "accuracy": [
+      0.7096309039219487,
+      0.7718610879841468
+     ],
+     "balanced_accuracy": [
+      0.7066998837668227,
+      0.7669716843414478
+     ],
+     "recall": [
+      0.7380687830687831,
+      0.8236142733155193
+     ],
+     "precision": [
+      0.7084950865592139,
+      0.8000171821305843
+     ],
+     "specificity": [
+      0.6462023114204051,
+      0.7348300876916803
+     ]
+    },
+    "macro": {
+     "auroc": [
+      0.8196187429218921,
+      0.8560647126339138
+     ],
+     "auprc": [
+      0.6940116386634064,
+      0.7653035165108769
+     ],
+     "f1": [
+      0.6189274084900481,
+      0.6805646465680149
+     ],
+     "recall_at_spec": [
+      0.5848199244403837,
+      0.6640397359420003
+     ],
+     "accuracy": [
+      0.8041580228004189,
+      0.8297834966787164
+     ],
+     "balanced_accuracy": [
+      0.7337426917781277,
+      0.7746389929073205
+     ],
+     "recall": [
+      0.6337646637091356,
+      0.7134646660073392
+     ],
+     "precision": [
+      0.6030996434552415,
+      0.6747339420006817
+     ],
+     "specificity": [
+      0.8159610664301487,
+      0.8529398829977606
+     ]
+    }
+   }
+  }
+ },
+ "stratified": {
+  "val": {
+   "later_operated": [
+    {
+     "stratum": "False",
+     "n": 1260,
+     "EDH": 0.8415,
+     "EDH_prev": 0.153,
+     "SDH": 0.8433,
+     "SDH_prev": 0.314,
+     "tSAH": 0.8583,
+     "tSAH_prev": 0.271,
+     "Has_IVH": 0.7945,
+     "Has_IVH_prev": 0.09,
+     "Contusion": 0.8204,
+     "Contusion_prev": 0.497,
+     "macro_auroc": 0.8316
+    },
+    {
+     "stratum": "True",
+     "n": 146,
+     "EDH": 0.8892,
+     "EDH_prev": 0.192,
+     "SDH": 0.8759,
+     "SDH_prev": 0.534,
+     "tSAH": 0.8561,
+     "tSAH_prev": 0.39,
+     "Has_IVH": 0.8204,
+     "Has_IVH_prev": 0.158,
+     "Contusion": 0.8793,
+     "Contusion_prev": 0.568,
+     "macro_auroc": 0.8642
+    }
+   ],
+   "ct_index": [
+    {
+     "stratum": "1",
+     "n": 540,
+     "EDH": 0.8774,
+     "EDH_prev": 0.141,
+     "SDH": 0.9023,
+     "SDH_prev": 0.307,
+     "tSAH": 0.8564,
+     "tSAH_prev": 0.248,
+     "Has_IVH": 0.8241,
+     "Has_IVH_prev": 0.091,
+     "Contusion": 0.8269,
+     "Contusion_prev": 0.459,
+     "macro_auroc": 0.8574
+    },
+    {
+     "stratum": "2",
+     "n": 374,
+     "EDH": 0.812,
+     "EDH_prev": 0.171,
+     "SDH": 0.8595,
+     "SDH_prev": 0.283,
+     "tSAH": 0.8391,
+     "tSAH_prev": 0.246,
+     "Has_IVH": 0.8093,
+     "Has_IVH_prev": 0.08,
+     "Contusion": 0.8313,
+     "Contusion_prev": 0.489,
+     "macro_auroc": 0.8302
+    },
+    {
+     "stratum": "3+",
+     "n": 492,
+     "EDH": 0.8425,
+     "EDH_prev": 0.165,
+     "SDH": 0.8066,
+     "SDH_prev": 0.411,
+     "tSAH": 0.874,
+     "tSAH_prev": 0.352,
+     "Has_IVH": 0.7547,
+     "Has_IVH_prev": 0.116,
+     "Contusion": 0.8208,
+     "Contusion_prev": 0.565,
+     "macro_auroc": 0.8197
+    }
+   ],
+   "radiologist": [
+    {
+     "stratum": "Dr. Abbasi",
+     "n": 123,
+     "EDH": 0.7625,
+     "EDH_prev": 0.138,
+     "SDH": 0.8657,
+     "SDH_prev": 0.268,
+     "tSAH": 0.9136,
+     "tSAH_prev": 0.211,
+     "Has_IVH": 0.7873,
+     "Has_IVH_prev": 0.089,
+     "Contusion": 0.7868,
+     "Contusion_prev": 0.48,
+     "macro_auroc": 0.8232
+    },
+    {
+     "stratum": "Dr. Basiri",
+     "n": 51,
+     "EDH": 0.9268,
+     "EDH_prev": 0.196,
+     "SDH": 0.7984,
+     "SDH_prev": 0.412,
+     "tSAH": 0.8722,
+     "tSAH_prev": 0.294,
+     "Has_IVH": 0.6831,
+     "Has_IVH_prev": 0.157,
+     "Contusion": 0.7829,
+     "Contusion_prev": 0.627,
+     "macro_auroc": 0.8127
+    },
+    {
+     "stratum": "Dr. Doosti",
+     "n": 62,
+     "EDH": 0.9405,
+     "EDH_prev": 0.097,
+     "SDH": 0.824,
+     "SDH_prev": 0.516,
+     "tSAH": 0.8442,
+     "tSAH_prev": 0.161,
+     "Has_IVH": 0.6161,
+     "Has_IVH_prev": 0.097,
+     "Contusion": 0.8768,
+     "Contusion_prev": 0.403,
+     "macro_auroc": 0.8203
+    },
+    {
+     "stratum": "Dr. Hesari",
+     "n": 86,
+     "EDH": 0.9048,
+     "EDH_prev": 0.163,
+     "SDH": 0.9892,
+     "SDH_prev": 0.081,
+     "tSAH": 0.9887,
+     "tSAH_prev": 0.14,
+     "Has_IVH": 0.9852,
+     "Has_IVH_prev": 0.058,
+     "Contusion": 0.8469,
+     "Contusion_prev": 0.36,
+     "macro_auroc": 0.943
+    },
+    {
+     "stratum": "Dr. Kazempour",
+     "n": 61,
+     "EDH": null,
+     "EDH_prev": 0.066,
+     "SDH": 0.9511,
+     "SDH_prev": 0.41,
+     "tSAH": 0.9253,
+     "tSAH_prev": 0.541,
+     "Has_IVH": 0.8157,
+     "Has_IVH_prev": 0.164,
+     "Contusion": 0.8899,
+     "Contusion_prev": 0.754,
+     "macro_auroc": 0.8955
+    },
+    {
+     "stratum": "Dr. Musavi (zahra)",
+     "n": 58,
+     "EDH": 0.9128,
+     "EDH_prev": 0.224,
+     "SDH": 0.9356,
+     "SDH_prev": 0.121,
+     "tSAH": 0.7572,
+     "tSAH_prev": 0.448,
+     "Has_IVH": 0.7256,
+     "Has_IVH_prev": 0.241,
+     "Contusion": 0.8174,
+     "Contusion_prev": 0.586,
+     "macro_auroc": 0.8297
+    },
+    {
+     "stratum": "Dr. Najdi",
+     "n": 76,
+     "EDH": 0.8606,
+     "EDH_prev": 0.184,
+     "SDH": 0.9465,
+     "SDH_prev": 0.526,
+     "tSAH": 0.8822,
+     "tSAH_prev": 0.237,
+     "Has_IVH": 0.7697,
+     "Has_IVH_prev": 0.132,
+     "Contusion": 0.7484,
+     "Contusion_prev": 0.592,
+     "macro_auroc": 0.8415
+    },
+    {
+     "stratum": "Dr. Naseri",
+     "n": 126,
+     "EDH": 0.901,
+     "EDH_prev": 0.294,
+     "SDH": 0.8689,
+     "SDH_prev": 0.516,
+     "tSAH": 0.8896,
+     "tSAH_prev": 0.524,
+     "Has_IVH": 0.7585,
+     "Has_IVH_prev": 0.063,
+     "Contusion": 0.8591,
+     "Contusion_prev": 0.667,
+     "macro_auroc": 0.8554
+    },
+    {
+     "stratum": "Dr. Rastgoftar",
+     "n": 68,
+     "EDH": null,
+     "EDH_prev": 0.059,
+     "SDH": 0.9315,
+     "SDH_prev": 0.191,
+     "tSAH": 0.9247,
+     "tSAH_prev": 0.088,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.015,
+     "Contusion": 0.7396,
+     "Contusion_prev": 0.5,
+     "macro_auroc": 0.8653
+    },
+    {
+     "stratum": "Dr. Tabie",
+     "n": 115,
+     "EDH": 0.5966,
+     "EDH_prev": 0.061,
+     "SDH": 0.834,
+     "SDH_prev": 0.4,
+     "tSAH": 0.8981,
+     "tSAH_prev": 0.391,
+     "Has_IVH": 0.7855,
+     "Has_IVH_prev": 0.252,
+     "Contusion": 0.831,
+     "Contusion_prev": 0.652,
+     "macro_auroc": 0.789
+    },
+    {
+     "stratum": "Dr. Taghi",
+     "n": 113,
+     "EDH": 0.7522,
+     "EDH_prev": 0.195,
+     "SDH": 0.9014,
+     "SDH_prev": 0.372,
+     "tSAH": 0.8745,
+     "tSAH_prev": 0.319,
+     "Has_IVH": 0.7485,
+     "Has_IVH_prev": 0.115,
+     "Contusion": 0.9452,
+     "Contusion_prev": 0.425,
+     "macro_auroc": 0.8444
+    },
+    {
+     "stratum": "Dr. Torabi",
+     "n": 139,
+     "EDH": 0.9194,
+     "EDH_prev": 0.072,
+     "SDH": 0.8313,
+     "SDH_prev": 0.381,
+     "tSAH": 0.7604,
+     "tSAH_prev": 0.187,
+     "Has_IVH": 0.6552,
+     "Has_IVH_prev": 0.036,
+     "Contusion": 0.9037,
+     "Contusion_prev": 0.331,
+     "macro_auroc": 0.814
+    },
+    {
+     "stratum": "Dr. Veysi",
+     "n": 120,
+     "EDH": 0.8676,
+     "EDH_prev": 0.2,
+     "SDH": 0.875,
+     "SDH_prev": 0.2,
+     "tSAH": 0.7208,
+     "tSAH_prev": 0.192,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.008,
+     "Contusion": 0.7282,
+     "Contusion_prev": 0.467,
+     "macro_auroc": 0.7979
+    },
+    {
+     "stratum": "Dr. XY",
+     "n": 43,
+     "EDH": null,
+     "EDH_prev": 0.047,
+     "SDH": 0.9128,
+     "SDH_prev": 0.302,
+     "tSAH": 0.9072,
+     "tSAH_prev": 0.395,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.047,
+     "Contusion": 0.9355,
+     "Contusion_prev": 0.279,
+     "macro_auroc": 0.9185
+    },
+    {
+     "stratum": "Dr. Zareian",
+     "n": 122,
+     "EDH": 0.7823,
+     "EDH_prev": 0.197,
+     "SDH": 0.8938,
+     "SDH_prev": 0.262,
+     "tSAH": 0.8351,
+     "tSAH_prev": 0.221,
+     "Has_IVH": 0.9902,
+     "Has_IVH_prev": 0.082,
+     "Contusion": 0.8054,
+     "Contusion_prev": 0.533,
+     "macro_auroc": 0.8613
+    }
+   ],
+   "marshall": [
+    {
+     "stratum": "1",
+     "n": 218,
+     "EDH": null,
+     "EDH_prev": 0.005,
+     "SDH": null,
+     "SDH_prev": 0.0,
+     "tSAH": null,
+     "tSAH_prev": 0.0,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.0,
+     "Contusion": null,
+     "Contusion_prev": 0.0,
+     "macro_auroc": null
+    },
+    {
+     "stratum": "2",
+     "n": 909,
+     "EDH": 0.8348,
+     "EDH_prev": 0.189,
+     "SDH": 0.8166,
+     "SDH_prev": 0.359,
+     "tSAH": 0.8535,
+     "tSAH_prev": 0.307,
+     "Has_IVH": 0.7648,
+     "Has_IVH_prev": 0.097,
+     "Contusion": 0.7612,
+     "Contusion_prev": 0.576,
+     "macro_auroc": 0.8062
+    },
+    {
+     "stratum": "3",
+     "n": 133,
+     "EDH": 0.8483,
+     "EDH_prev": 0.12,
+     "SDH": 0.7511,
+     "SDH_prev": 0.376,
+     "tSAH": 0.7597,
+     "tSAH_prev": 0.391,
+     "Has_IVH": 0.7382,
+     "Has_IVH_prev": 0.143,
+     "Contusion": 0.8718,
+     "Contusion_prev": 0.647,
+     "macro_auroc": 0.7938
+    },
+    {
+     "stratum": "4",
+     "n": 65,
+     "EDH": 0.8318,
+     "EDH_prev": 0.185,
+     "SDH": 0.9067,
+     "SDH_prev": 0.769,
+     "tSAH": 0.8841,
+     "tSAH_prev": 0.354,
+     "Has_IVH": 0.8107,
+     "Has_IVH_prev": 0.2,
+     "Contusion": 0.8636,
+     "Contusion_prev": 0.508,
+     "macro_auroc": 0.8594
+    },
+    {
+     "stratum": "6",
+     "n": 81,
+     "EDH": 0.8197,
+     "EDH_prev": 0.247,
+     "SDH": 0.9318,
+     "SDH_prev": 0.593,
+     "tSAH": 0.6506,
+     "tSAH_prev": 0.556,
+     "Has_IVH": 0.8837,
+     "Has_IVH_prev": 0.198,
+     "Contusion": 0.9768,
+     "Contusion_prev": 0.815,
+     "macro_auroc": 0.8525
+    }
+   ],
+   "chrono_holdout": [
+    {
+     "stratum": "False",
+     "n": 1251,
+     "EDH": 0.85,
+     "EDH_prev": 0.163,
+     "SDH": 0.8528,
+     "SDH_prev": 0.325,
+     "tSAH": 0.8605,
+     "tSAH_prev": 0.301,
+     "Has_IVH": 0.8004,
+     "Has_IVH_prev": 0.103,
+     "Contusion": 0.8313,
+     "Contusion_prev": 0.522,
+     "macro_auroc": 0.839
+    },
+    {
+     "stratum": "True",
+     "n": 155,
+     "EDH": 0.8278,
+     "EDH_prev": 0.11,
+     "SDH": 0.8567,
+     "SDH_prev": 0.439,
+     "tSAH": 0.8496,
+     "tSAH_prev": 0.142,
+     "Has_IVH": 0.7403,
+     "Has_IVH_prev": 0.045,
+     "Contusion": 0.7816,
+     "Contusion_prev": 0.361,
+     "macro_auroc": 0.8112
+    }
+   ]
+  },
+  "test": {
+   "later_operated": [
+    {
+     "stratum": "False",
+     "n": 1238,
+     "EDH": 0.8175,
+     "EDH_prev": 0.147,
+     "SDH": 0.8716,
+     "SDH_prev": 0.284,
+     "tSAH": 0.8427,
+     "tSAH_prev": 0.289,
+     "Has_IVH": 0.8366,
+     "Has_IVH_prev": 0.116,
+     "Contusion": 0.8264,
+     "Contusion_prev": 0.536,
+     "macro_auroc": 0.839
+    },
+    {
+     "stratum": "True",
+     "n": 179,
+     "EDH": 0.7708,
+     "EDH_prev": 0.179,
+     "SDH": 0.8694,
+     "SDH_prev": 0.458,
+     "tSAH": 0.8057,
+     "tSAH_prev": 0.369,
+     "Has_IVH": 0.9086,
+     "Has_IVH_prev": 0.14,
+     "Contusion": 0.8637,
+     "Contusion_prev": 0.659,
+     "macro_auroc": 0.8436
+    }
+   ],
+   "ct_index": [
+    {
+     "stratum": "1",
+     "n": 540,
+     "EDH": 0.8099,
+     "EDH_prev": 0.148,
+     "SDH": 0.8996,
+     "SDH_prev": 0.307,
+     "tSAH": 0.8321,
+     "tSAH_prev": 0.244,
+     "Has_IVH": 0.8779,
+     "Has_IVH_prev": 0.078,
+     "Contusion": 0.8143,
+     "Contusion_prev": 0.452,
+     "macro_auroc": 0.8468
+    },
+    {
+     "stratum": "2",
+     "n": 381,
+     "EDH": 0.8609,
+     "EDH_prev": 0.16,
+     "SDH": 0.8287,
+     "SDH_prev": 0.281,
+     "tSAH": 0.7906,
+     "tSAH_prev": 0.244,
+     "Has_IVH": 0.7933,
+     "Has_IVH_prev": 0.089,
+     "Contusion": 0.7926,
+     "Contusion_prev": 0.499,
+     "macro_auroc": 0.8132
+    },
+    {
+     "stratum": "3+",
+     "n": 496,
+     "EDH": 0.7655,
+     "EDH_prev": 0.147,
+     "SDH": 0.8782,
+     "SDH_prev": 0.323,
+     "tSAH": 0.8562,
+     "tSAH_prev": 0.401,
+     "Has_IVH": 0.8234,
+     "Has_IVH_prev": 0.185,
+     "Contusion": 0.8546,
+     "Contusion_prev": 0.702,
+     "macro_auroc": 0.8356
+    }
+   ],
+   "radiologist": [
+    {
+     "stratum": "Dr. Abbasi",
+     "n": 130,
+     "EDH": 0.8637,
+     "EDH_prev": 0.162,
+     "SDH": 0.8156,
+     "SDH_prev": 0.146,
+     "tSAH": 0.8623,
+     "tSAH_prev": 0.208,
+     "Has_IVH": 0.8887,
+     "Has_IVH_prev": 0.115,
+     "Contusion": 0.728,
+     "Contusion_prev": 0.362,
+     "macro_auroc": 0.8316
+    },
+    {
+     "stratum": "Dr. Basiri",
+     "n": 80,
+     "EDH": 0.867,
+     "EDH_prev": 0.113,
+     "SDH": 0.958,
+     "SDH_prev": 0.263,
+     "tSAH": 0.8569,
+     "tSAH_prev": 0.5,
+     "Has_IVH": 0.7404,
+     "Has_IVH_prev": 0.138,
+     "Contusion": 0.934,
+     "Contusion_prev": 0.463,
+     "macro_auroc": 0.8713
+    },
+    {
+     "stratum": "Dr. Doosti",
+     "n": 66,
+     "EDH": 0.4993,
+     "EDH_prev": 0.197,
+     "SDH": 0.8503,
+     "SDH_prev": 0.5,
+     "tSAH": 0.7707,
+     "tSAH_prev": 0.561,
+     "Has_IVH": 0.9607,
+     "Has_IVH_prev": 0.152,
+     "Contusion": 0.83,
+     "Contusion_prev": 0.758,
+     "macro_auroc": 0.7822
+    },
+    {
+     "stratum": "Dr. Hesari",
+     "n": 85,
+     "EDH": 0.9014,
+     "EDH_prev": 0.165,
+     "SDH": 0.9459,
+     "SDH_prev": 0.129,
+     "tSAH": 0.6575,
+     "tSAH_prev": 0.094,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.0,
+     "Contusion": 0.7319,
+     "Contusion_prev": 0.424,
+     "macro_auroc": 0.8092
+    },
+    {
+     "stratum": "Dr. Kazempour",
+     "n": 92,
+     "EDH": null,
+     "EDH_prev": 0.0,
+     "SDH": 0.9147,
+     "SDH_prev": 0.413,
+     "tSAH": 0.9102,
+     "tSAH_prev": 0.511,
+     "Has_IVH": 0.7311,
+     "Has_IVH_prev": 0.207,
+     "Contusion": 0.8789,
+     "Contusion_prev": 0.696,
+     "macro_auroc": 0.8587
+    },
+    {
+     "stratum": "Dr. Musavi (mohamadreza)",
+     "n": 34,
+     "EDH": 0.5862,
+     "EDH_prev": 0.147,
+     "SDH": 0.9084,
+     "SDH_prev": 0.382,
+     "tSAH": 0.8854,
+     "tSAH_prev": 0.324,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.029,
+     "Contusion": 0.7614,
+     "Contusion_prev": 0.647,
+     "macro_auroc": 0.7853
+    },
+    {
+     "stratum": "Dr. Musavi (zahra)",
+     "n": 80,
+     "EDH": 0.8784,
+     "EDH_prev": 0.075,
+     "SDH": 0.8697,
+     "SDH_prev": 0.388,
+     "tSAH": 0.8467,
+     "tSAH_prev": 0.3,
+     "Has_IVH": 0.7418,
+     "Has_IVH_prev": 0.138,
+     "Contusion": 0.8985,
+     "Contusion_prev": 0.812,
+     "macro_auroc": 0.847
+    },
+    {
+     "stratum": "Dr. Najdi",
+     "n": 84,
+     "EDH": 0.8414,
+     "EDH_prev": 0.298,
+     "SDH": 0.9195,
+     "SDH_prev": 0.274,
+     "tSAH": 0.8451,
+     "tSAH_prev": 0.214,
+     "Has_IVH": 0.7837,
+     "Has_IVH_prev": 0.167,
+     "Contusion": 0.8847,
+     "Contusion_prev": 0.714,
+     "macro_auroc": 0.8549
+    },
+    {
+     "stratum": "Dr. Naseri",
+     "n": 69,
+     "EDH": null,
+     "EDH_prev": 0.029,
+     "SDH": 0.9062,
+     "SDH_prev": 0.217,
+     "tSAH": 0.7153,
+     "tSAH_prev": 0.29,
+     "Has_IVH": 0.9074,
+     "Has_IVH_prev": 0.333,
+     "Contusion": 0.7846,
+     "Contusion_prev": 0.536,
+     "macro_auroc": 0.8284
+    },
+    {
+     "stratum": "Dr. Rastgoftar",
+     "n": 63,
+     "EDH": null,
+     "EDH_prev": 0.032,
+     "SDH": 0.7848,
+     "SDH_prev": 0.365,
+     "tSAH": null,
+     "tSAH_prev": 0.016,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.0,
+     "Contusion": 0.5669,
+     "Contusion_prev": 0.333,
+     "macro_auroc": 0.6758
+    },
+    {
+     "stratum": "Dr. Tabie",
+     "n": 91,
+     "EDH": 0.7539,
+     "EDH_prev": 0.374,
+     "SDH": 0.896,
+     "SDH_prev": 0.462,
+     "tSAH": 0.9186,
+     "tSAH_prev": 0.418,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.033,
+     "Contusion": 0.9507,
+     "Contusion_prev": 0.648,
+     "macro_auroc": 0.8798
+    },
+    {
+     "stratum": "Dr. Taghi",
+     "n": 137,
+     "EDH": 0.9029,
+     "EDH_prev": 0.212,
+     "SDH": 0.8807,
+     "SDH_prev": 0.46,
+     "tSAH": 0.8455,
+     "tSAH_prev": 0.518,
+     "Has_IVH": 0.688,
+     "Has_IVH_prev": 0.153,
+     "Contusion": 0.9062,
+     "Contusion_prev": 0.745,
+     "macro_auroc": 0.8447
+    },
+    {
+     "stratum": "Dr. Torabi",
+     "n": 75,
+     "EDH": null,
+     "EDH_prev": 0.027,
+     "SDH": 0.9288,
+     "SDH_prev": 0.333,
+     "tSAH": 0.8853,
+     "tSAH_prev": 0.373,
+     "Has_IVH": 0.9914,
+     "Has_IVH_prev": 0.067,
+     "Contusion": 0.928,
+     "Contusion_prev": 0.387,
+     "macro_auroc": 0.9334
+    },
+    {
+     "stratum": "Dr. Veysi",
+     "n": 129,
+     "EDH": 0.7653,
+     "EDH_prev": 0.101,
+     "SDH": 0.9278,
+     "SDH_prev": 0.186,
+     "tSAH": 0.7962,
+     "tSAH_prev": 0.194,
+     "Has_IVH": 0.999,
+     "Has_IVH_prev": 0.14,
+     "Contusion": 0.6577,
+     "Contusion_prev": 0.465,
+     "macro_auroc": 0.8292
+    },
+    {
+     "stratum": "Dr. XY",
+     "n": 38,
+     "EDH": null,
+     "EDH_prev": 0.053,
+     "SDH": 0.875,
+     "SDH_prev": 0.211,
+     "tSAH": 0.9179,
+     "tSAH_prev": 0.263,
+     "Has_IVH": 0.8833,
+     "Has_IVH_prev": 0.211,
+     "Contusion": 0.8857,
+     "Contusion_prev": 0.263,
+     "macro_auroc": 0.8905
+    },
+    {
+     "stratum": "Dr. Zareian",
+     "n": 136,
+     "EDH": 0.9009,
+     "EDH_prev": 0.272,
+     "SDH": 0.7422,
+     "SDH_prev": 0.213,
+     "tSAH": 0.8286,
+     "tSAH_prev": 0.132,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.029,
+     "Contusion": 0.7591,
+     "Contusion_prev": 0.471,
+     "macro_auroc": 0.8077
+    }
+   ],
+   "marshall": [
+    {
+     "stratum": "1",
+     "n": 216,
+     "EDH": null,
+     "EDH_prev": 0.0,
+     "SDH": null,
+     "SDH_prev": 0.0,
+     "tSAH": null,
+     "tSAH_prev": 0.0,
+     "Has_IVH": null,
+     "Has_IVH_prev": 0.0,
+     "Contusion": null,
+     "Contusion_prev": 0.0,
+     "macro_auroc": null
+    },
+    {
+     "stratum": "2",
+     "n": 911,
+     "EDH": 0.8069,
+     "EDH_prev": 0.186,
+     "SDH": 0.8391,
+     "SDH_prev": 0.322,
+     "tSAH": 0.8281,
+     "tSAH_prev": 0.313,
+     "Has_IVH": 0.8485,
+     "Has_IVH_prev": 0.132,
+     "Contusion": 0.7755,
+     "Contusion_prev": 0.607,
+     "macro_auroc": 0.8196
+    },
+    {
+     "stratum": "3",
+     "n": 150,
+     "EDH": 0.7115,
+     "EDH_prev": 0.127,
+     "SDH": 0.8196,
+     "SDH_prev": 0.333,
+     "tSAH": 0.7202,
+     "tSAH_prev": 0.46,
+     "Has_IVH": 0.8178,
+     "Has_IVH_prev": 0.213,
+     "Contusion": 0.7883,
+     "Contusion_prev": 0.82,
+     "macro_auroc": 0.7715
+    },
+    {
+     "stratum": "4",
+     "n": 58,
+     "EDH": 0.6162,
+     "EDH_prev": 0.121,
+     "SDH": 0.8833,
+     "SDH_prev": 0.828,
+     "tSAH": 0.7696,
+     "tSAH_prev": 0.362,
+     "Has_IVH": 0.6763,
+     "Has_IVH_prev": 0.103,
+     "Contusion": 0.875,
+     "Contusion_prev": 0.655,
+     "macro_auroc": 0.7641
+    },
+    {
+     "stratum": "6",
+     "n": 80,
+     "EDH": 0.8162,
+     "EDH_prev": 0.237,
+     "SDH": 0.8874,
+     "SDH_prev": 0.512,
+     "tSAH": 0.7705,
+     "tSAH_prev": 0.588,
+     "Has_IVH": 0.64,
+     "Has_IVH_prev": 0.125,
+     "Contusion": 0.829,
+     "Contusion_prev": 0.825,
+     "macro_auroc": 0.7886
+    }
+   ],
+   "chrono_holdout": [
+    {
+     "stratum": "False",
+     "n": 1272,
+     "EDH": 0.8273,
+     "EDH_prev": 0.145,
+     "SDH": 0.8781,
+     "SDH_prev": 0.307,
+     "tSAH": 0.8326,
+     "tSAH_prev": 0.29,
+     "Has_IVH": 0.8331,
+     "Has_IVH_prev": 0.119,
+     "Contusion": 0.8475,
+     "Contusion_prev": 0.549,
+     "macro_auroc": 0.8437
+    },
+    {
+     "stratum": "True",
+     "n": 145,
+     "EDH": 0.7099,
+     "EDH_prev": 0.207,
+     "SDH": 0.8486,
+     "SDH_prev": 0.29,
+     "tSAH": 0.864,
+     "tSAH_prev": 0.379,
+     "Has_IVH": 0.9627,
+     "Has_IVH_prev": 0.11,
+     "Contusion": 0.6895,
+     "Contusion_prev": 0.579,
+     "macro_auroc": 0.8149
+    }
+   ]
+  }
+ },
+ "later_operated_probe": "skipped: frozen-feature cache not available for this encoder",
+ "attention_laterality_val": {
+  "SDH": {
+   "n": 227,
+   "frac_expected_side_radiological": 0.73568281938326,
+   "mean_signed_asymmetry": 0.30367564018286897
+  },
+  "EDH": {
+   "n": 133,
+   "frac_expected_side_radiological": 0.7443609022556391,
+   "mean_signed_asymmetry": 0.30371573539927915
+  }
+ }
+}

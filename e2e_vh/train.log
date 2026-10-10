@@ -1,0 +1,219 @@
+[stage B] head initialized from outputs/runs/abmil_vh/best.pt (epoch 29)
+[stage B] run=e2e_vh encoder=visionhope_tiny train=6608 val=1406 train-eval subset=1000
+  epoch 1 step 125/1652 loss 1.1336 68s peak 13.5 GiB
+  epoch 1 step 250/1652 loss 1.1273 136s peak 13.5 GiB
+  epoch 1 step 375/1652 loss 1.1286 201s peak 13.5 GiB
+  epoch 1 step 500/1652 loss 1.1289 268s peak 13.5 GiB
+  epoch 1 step 625/1652 loss 1.1165 334s peak 13.5 GiB
+  epoch 1 step 750/1652 loss 1.1218 401s peak 13.5 GiB
+  epoch 1 step 875/1652 loss 1.1257 470s peak 13.5 GiB
+  epoch 1 step 1000/1652 loss 1.1265 534s peak 13.5 GiB
+  epoch 1 step 1125/1652 loss 1.1279 600s peak 13.5 GiB
+  epoch 1 step 1250/1652 loss 1.1280 665s peak 13.5 GiB
+  epoch 1 step 1375/1652 loss 1.1285 730s peak 13.5 GiB
+  epoch 1 step 1500/1652 loss 1.1310 795s peak 13.5 GiB
+  epoch 1 step 1625/1652 loss 1.1330 860s peak 13.5 GiB
+epoch   1 | loss 1.1337/1.2082 | AUROC train 0.8839 val 0.7624 | AUPRC train 0.7726 val 0.5716 | ent 0.804 peak 0.243 | gn 49.65 lr 1.00e-04
+   @0.5 acc train 0.828 val 0.769 (bal 0.686) | recall train 0.757 val 0.599 | val prec 0.512 spec 0.773
+   val AUROC/AUPRC EDH=0.703/0.382 SDH=0.828/0.752 tSAH=0.794/0.657 Has_IVH=0.772/0.347 Contusion=0.715/0.720
+   val acc/recall@0.5 EDH=0.790/0.421 SDH=0.782/0.673 tSAH=0.778/0.614 Has_IVH=0.851/0.441 Contusion=0.641/0.846
+  epoch time 961s
+  epoch 2 step 125/1652 loss 1.1217 66s peak 13.5 GiB
+  epoch 2 step 250/1652 loss 1.1184 131s peak 13.5 GiB
+  epoch 2 step 375/1652 loss 1.1044 195s peak 13.5 GiB
+  epoch 2 step 500/1652 loss 1.1064 261s peak 13.5 GiB
+  epoch 2 step 625/1652 loss 1.1081 326s peak 13.5 GiB
+  epoch 2 step 750/1652 loss 1.1082 392s peak 13.5 GiB
+  epoch 2 step 875/1652 loss 1.1050 456s peak 13.5 GiB
+  epoch 2 step 1000/1652 loss 1.0933 521s peak 13.5 GiB
+  epoch 2 step 1125/1652 loss 1.0895 587s peak 13.5 GiB
+  epoch 2 step 1250/1652 loss 1.0891 651s peak 13.5 GiB
+  epoch 2 step 1375/1652 loss 1.0840 716s peak 13.5 GiB
+  epoch 2 step 1500/1652 loss 1.0808 780s peak 13.5 GiB
+  epoch 2 step 1625/1652 loss 1.0792 845s peak 13.5 GiB
+epoch   2 | loss 1.0780/1.1888 | AUROC train 0.8894 val 0.7704 | AUPRC train 0.7846 val 0.5917 | ent 0.811 peak 0.237 | gn 34.27 lr 9.80e-05
+   @0.5 acc train 0.839 val 0.778 (bal 0.688) | recall train 0.740 val 0.582 | val prec 0.537 spec 0.793
+   val AUROC/AUPRC EDH=0.723/0.435 SDH=0.831/0.759 tSAH=0.800/0.667 Has_IVH=0.778/0.371 Contusion=0.719/0.726
+   val acc/recall@0.5 EDH=0.802/0.443 SDH=0.790/0.643 tSAH=0.789/0.591 Has_IVH=0.868/0.404 Contusion=0.639/0.828
+  epoch time 945s
+  epoch 3 step 125/1652 loss 1.0867 65s peak 13.5 GiB
+  epoch 3 step 250/1652 loss 1.0728 131s peak 13.5 GiB
+  epoch 3 step 375/1652 loss 1.0548 196s peak 13.5 GiB
+  epoch 3 step 500/1652 loss 1.0450 262s peak 13.5 GiB
+  epoch 3 step 625/1652 loss 1.0449 327s peak 13.5 GiB
+  epoch 3 step 750/1652 loss 1.0296 393s peak 13.5 GiB
+  epoch 3 step 875/1652 loss 1.0194 459s peak 13.5 GiB
+  epoch 3 step 1000/1652 loss 1.0183 524s peak 13.5 GiB
+  epoch 3 step 1125/1652 loss 1.0141 589s peak 13.5 GiB
+  epoch 3 step 1250/1652 loss 1.0116 655s peak 13.5 GiB
+  epoch 3 step 1375/1652 loss 1.0082 721s peak 13.5 GiB
+  epoch 3 step 1500/1652 loss 1.0067 787s peak 13.5 GiB
+  epoch 3 step 1625/1652 loss 1.0039 852s peak 13.5 GiB
+epoch   3 | loss 1.0050/1.1647 | AUROC train 0.8971 val 0.7813 | AUPRC train 0.7999 val 0.6126 | ent 0.810 peak 0.238 | gn 29.62 lr 9.21e-05
+   @0.5 acc train 0.849 val 0.786 (bal 0.689) | recall train 0.746 val 0.569 | val prec 0.556 spec 0.810
+   val AUROC/AUPRC EDH=0.751/0.490 SDH=0.838/0.772 tSAH=0.808/0.677 Has_IVH=0.782/0.387 Contusion=0.728/0.736
+   val acc/recall@0.5 EDH=0.826/0.430 SDH=0.792/0.631 tSAH=0.794/0.591 Has_IVH=0.872/0.382 Contusion=0.643/0.810
+  epoch time 952s
+  epoch 4 step 125/1652 loss 0.9903 65s peak 13.5 GiB
+  epoch 4 step 250/1652 loss 0.9750 134s peak 13.5 GiB
+  epoch 4 step 375/1652 loss 0.9775 202s peak 13.5 GiB
+  epoch 4 step 500/1652 loss 0.9767 270s peak 13.5 GiB
+  epoch 4 step 625/1652 loss 0.9740 336s peak 13.5 GiB
+  epoch 4 step 750/1652 loss 0.9625 404s peak 13.5 GiB
+  epoch 4 step 875/1652 loss 0.9558 470s peak 13.5 GiB
+  epoch 4 step 1000/1652 loss 0.9556 537s peak 13.5 GiB
+  epoch 4 step 1125/1652 loss 0.9495 603s peak 13.5 GiB
+  epoch 4 step 1250/1652 loss 0.9445 669s peak 13.5 GiB
+  epoch 4 step 1375/1652 loss 0.9414 735s peak 13.5 GiB
+  epoch 4 step 1500/1652 loss 0.9394 802s peak 13.5 GiB
+  epoch 4 step 1625/1652 loss 0.9374 868s peak 13.5 GiB
+epoch   4 | loss 0.9391/1.1441 | AUROC train 0.9051 val 0.7943 | AUPRC train 0.8152 val 0.6321 | ent 0.804 peak 0.241 | gn 25.26 lr 8.27e-05
+   @0.5 acc train 0.863 val 0.796 (bal 0.702) | recall train 0.746 val 0.573 | val prec 0.586 spec 0.830
+   val AUROC/AUPRC EDH=0.779/0.530 SDH=0.844/0.782 tSAH=0.817/0.689 Has_IVH=0.789/0.406 Contusion=0.743/0.753
+   val acc/recall@0.5 EDH=0.846/0.457 SDH=0.799/0.616 tSAH=0.801/0.602 Has_IVH=0.879/0.412 Contusion=0.656/0.780
+  epoch time 969s
+  epoch 5 step 125/1652 loss 0.8770 66s peak 13.5 GiB
+  epoch 5 step 250/1652 loss 0.8688 131s peak 13.5 GiB
+  epoch 5 step 375/1652 loss 0.8522 197s peak 13.5 GiB
+  epoch 5 step 500/1652 loss 0.8766 263s peak 13.5 GiB
+  epoch 5 step 625/1652 loss 0.8876 329s peak 13.5 GiB
+  epoch 5 step 750/1652 loss 0.8873 396s peak 13.5 GiB
+  epoch 5 step 875/1652 loss 0.8912 462s peak 13.5 GiB
+  epoch 5 step 1000/1652 loss 0.8904 528s peak 13.5 GiB
+  epoch 5 step 1125/1652 loss 0.8902 595s peak 13.5 GiB
+  epoch 5 step 1250/1652 loss 0.8840 661s peak 13.5 GiB
+  epoch 5 step 1375/1652 loss 0.8846 726s peak 13.5 GiB
+  epoch 5 step 1500/1652 loss 0.8846 792s peak 13.5 GiB
+  epoch 5 step 1625/1652 loss 0.8830 857s peak 13.5 GiB
+epoch   5 | loss 0.8826/1.1230 | AUROC train 0.9119 val 0.8059 | AUPRC train 0.8270 val 0.6497 | ent 0.796 peak 0.247 | gn 25.33 lr 7.08e-05
+   @0.5 acc train 0.874 val 0.805 (bal 0.710) | recall train 0.746 val 0.574 | val prec 0.602 spec 0.847
+   val AUROC/AUPRC EDH=0.801/0.569 SDH=0.848/0.790 tSAH=0.823/0.698 Has_IVH=0.797/0.418 Contusion=0.760/0.774
+   val acc/recall@0.5 EDH=0.858/0.480 SDH=0.801/0.631 tSAH=0.801/0.596 Has_IVH=0.881/0.397 Contusion=0.685/0.764
+  epoch time 958s
+  epoch 6 step 125/1652 loss 0.8078 66s peak 13.5 GiB
+  epoch 6 step 250/1652 loss 0.8110 132s peak 13.5 GiB
+  epoch 6 step 375/1652 loss 0.8490 197s peak 13.5 GiB
+  epoch 6 step 500/1652 loss 0.8523 262s peak 13.5 GiB
+  epoch 6 step 625/1652 loss 0.8517 329s peak 13.5 GiB
+  epoch 6 step 750/1652 loss 0.8499 395s peak 13.5 GiB
+  epoch 6 step 875/1652 loss 0.8442 461s peak 13.5 GiB
+  epoch 6 step 1000/1652 loss 0.8398 527s peak 13.5 GiB
+  epoch 6 step 1125/1652 loss 0.8430 596s peak 13.5 GiB
+  epoch 6 step 1250/1652 loss 0.8419 667s peak 13.5 GiB
+  epoch 6 step 1375/1652 loss 0.8414 735s peak 13.5 GiB
+  epoch 6 step 1500/1652 loss 0.8387 800s peak 13.5 GiB
+  epoch 6 step 1625/1652 loss 0.8405 865s peak 13.5 GiB
+epoch   6 | loss 0.8395/1.0969 | AUROC train 0.9190 val 0.8176 | AUPRC train 0.8397 val 0.6663 | ent 0.787 peak 0.254 | gn 23.73 lr 5.71e-05
+   @0.5 acc train 0.882 val 0.813 (bal 0.726) | recall train 0.761 val 0.597 | val prec 0.619 spec 0.855
+   val AUROC/AUPRC EDH=0.819/0.599 SDH=0.852/0.798 tSAH=0.832/0.712 Has_IVH=0.805/0.425 Contusion=0.780/0.798
+   val acc/recall@0.5 EDH=0.868/0.538 SDH=0.805/0.637 tSAH=0.807/0.624 Has_IVH=0.883/0.426 Contusion=0.701/0.759
+  epoch time 965s
+  epoch 7 step 125/1652 loss 0.8284 65s peak 13.5 GiB
+  epoch 7 step 250/1652 loss 0.8037 137s peak 13.5 GiB
+  epoch 7 step 375/1652 loss 0.8083 213s peak 13.5 GiB
+  epoch 7 step 500/1652 loss 0.8068 289s peak 13.5 GiB
+  epoch 7 step 625/1652 loss 0.7980 365s peak 13.5 GiB
+  epoch 7 step 750/1652 loss 0.7906 432s peak 13.5 GiB
+  epoch 7 step 875/1652 loss 0.7883 501s peak 13.5 GiB
+  epoch 7 step 1000/1652 loss 0.7931 571s peak 13.5 GiB
+  epoch 7 step 1125/1652 loss 0.7951 639s peak 13.5 GiB
+  epoch 7 step 1250/1652 loss 0.7965 709s peak 13.5 GiB
+  epoch 7 step 1375/1652 loss 0.7943 779s peak 13.5 GiB
+  epoch 7 step 1500/1652 loss 0.7918 845s peak 13.5 GiB
+  epoch 7 step 1625/1652 loss 0.7904 911s peak 13.5 GiB
+epoch   7 | loss 0.7917/1.0704 | AUROC train 0.9258 val 0.8269 | AUPRC train 0.8509 val 0.6814 | ent 0.780 peak 0.260 | gn 24.70 lr 4.29e-05
+   @0.5 acc train 0.883 val 0.816 (bal 0.733) | recall train 0.776 val 0.615 | val prec 0.619 spec 0.851
+   val AUROC/AUPRC EDH=0.830/0.624 SDH=0.857/0.804 tSAH=0.842/0.724 Has_IVH=0.809/0.439 Contusion=0.797/0.817
+   val acc/recall@0.5 EDH=0.865/0.570 SDH=0.813/0.648 tSAH=0.807/0.644 Has_IVH=0.885/0.426 Contusion=0.711/0.786
+  epoch time 1011s
+  epoch 8 step 125/1652 loss 0.7434 65s peak 13.5 GiB
+  epoch 8 step 250/1652 loss 0.7544 130s peak 13.5 GiB
+  epoch 8 step 375/1652 loss 0.7570 196s peak 13.5 GiB
+  epoch 8 step 500/1652 loss 0.7694 263s peak 13.5 GiB
+  epoch 8 step 625/1652 loss 0.7701 329s peak 13.5 GiB
+  epoch 8 step 750/1652 loss 0.7712 396s peak 13.5 GiB
+  epoch 8 step 875/1652 loss 0.7693 462s peak 13.5 GiB
+  epoch 8 step 1000/1652 loss 0.7745 528s peak 13.5 GiB
+  epoch 8 step 1125/1652 loss 0.7715 597s peak 13.5 GiB
+  epoch 8 step 1250/1652 loss 0.7726 663s peak 13.5 GiB
+  epoch 8 step 1375/1652 loss 0.7749 729s peak 13.5 GiB
+  epoch 8 step 1500/1652 loss 0.7753 796s peak 13.5 GiB
+  epoch 8 step 1625/1652 loss 0.7740 864s peak 13.5 GiB
+epoch   8 | loss 0.7738/1.0548 | AUROC train 0.9310 val 0.8326 | AUPRC train 0.8604 val 0.6913 | ent 0.773 peak 0.266 | gn 23.57 lr 2.92e-05
+   @0.5 acc train 0.888 val 0.818 (bal 0.738) | recall train 0.791 val 0.625 | val prec 0.622 spec 0.852
+   val AUROC/AUPRC EDH=0.838/0.640 SDH=0.859/0.806 tSAH=0.847/0.733 Has_IVH=0.813/0.449 Contusion=0.806/0.829
+   val acc/recall@0.5 EDH=0.868/0.593 SDH=0.815/0.652 tSAH=0.810/0.669 Has_IVH=0.885/0.434 Contusion=0.711/0.776
+  epoch time 968s
+  epoch 9 step 125/1652 loss 0.7336 69s peak 13.5 GiB
+  epoch 9 step 250/1652 loss 0.7427 136s peak 13.5 GiB
+  epoch 9 step 375/1652 loss 0.7558 204s peak 13.5 GiB
+  epoch 9 step 500/1652 loss 0.7589 274s peak 13.5 GiB
+  epoch 9 step 625/1652 loss 0.7657 344s peak 13.5 GiB
+  epoch 9 step 750/1652 loss 0.7638 413s peak 13.5 GiB
+  epoch 9 step 875/1652 loss 0.7527 480s peak 13.5 GiB
+  epoch 9 step 1000/1652 loss 0.7568 546s peak 13.5 GiB
+  epoch 9 step 1125/1652 loss 0.7562 612s peak 13.5 GiB
+  epoch 9 step 1250/1652 loss 0.7566 677s peak 13.5 GiB
+  epoch 9 step 1375/1652 loss 0.7584 743s peak 13.5 GiB
+  epoch 9 step 1500/1652 loss 0.7582 809s peak 13.5 GiB
+  epoch 9 step 1625/1652 loss 0.7593 874s peak 13.5 GiB
+epoch   9 | loss 0.7581/1.0501 | AUROC train 0.9355 val 0.8354 | AUPRC train 0.8694 val 0.6956 | ent 0.769 peak 0.269 | gn 23.82 lr 1.73e-05
+   @0.5 acc train 0.890 val 0.819 (bal 0.742) | recall train 0.801 val 0.633 | val prec 0.624 spec 0.850
+   val AUROC/AUPRC EDH=0.842/0.648 SDH=0.858/0.806 tSAH=0.850/0.738 Has_IVH=0.816/0.452 Contusion=0.811/0.834
+   val acc/recall@0.5 EDH=0.875/0.611 SDH=0.816/0.650 tSAH=0.808/0.682 Has_IVH=0.883/0.434 Contusion=0.716/0.791
+  epoch time 978s
+  epoch 10 step 125/1652 loss 0.7436 65s peak 13.5 GiB
+  epoch 10 step 250/1652 loss 0.7542 131s peak 13.5 GiB
+  epoch 10 step 375/1652 loss 0.7338 195s peak 13.5 GiB
+  epoch 10 step 500/1652 loss 0.7243 260s peak 13.5 GiB
+  epoch 10 step 625/1652 loss 0.7305 325s peak 13.5 GiB
+  epoch 10 step 750/1652 loss 0.7331 390s peak 13.5 GiB
+  epoch 10 step 875/1652 loss 0.7311 456s peak 13.5 GiB
+  epoch 10 step 1000/1652 loss 0.7247 521s peak 13.5 GiB
+  epoch 10 step 1125/1652 loss 0.7211 592s peak 13.5 GiB
+  epoch 10 step 1250/1652 loss 0.7185 659s peak 13.5 GiB
+  epoch 10 step 1375/1652 loss 0.7210 725s peak 13.5 GiB
+  epoch 10 step 1500/1652 loss 0.7189 790s peak 13.5 GiB
+  epoch 10 step 1625/1652 loss 0.7225 856s peak 13.5 GiB
+epoch  10 | loss 0.7240/1.0493 | AUROC train 0.9386 val 0.8372 | AUPRC train 0.8760 val 0.6986 | ent 0.766 peak 0.272 | gn 24.10 lr 7.94e-06
+   @0.5 acc train 0.890 val 0.818 (bal 0.742) | recall train 0.807 val 0.638 | val prec 0.619 spec 0.847
+   val AUROC/AUPRC EDH=0.844/0.651 SDH=0.858/0.806 tSAH=0.852/0.741 Has_IVH=0.817/0.456 Contusion=0.815/0.838
+   val acc/recall@0.5 EDH=0.876/0.602 SDH=0.817/0.656 tSAH=0.802/0.677 Has_IVH=0.878/0.456 Contusion=0.717/0.800
+  epoch time 960s
+  epoch 11 step 125/1652 loss 0.7152 70s peak 13.5 GiB
+  epoch 11 step 250/1652 loss 0.7198 136s peak 13.5 GiB
+  epoch 11 step 375/1652 loss 0.7260 205s peak 13.5 GiB
+  epoch 11 step 500/1652 loss 0.7378 272s peak 13.5 GiB
+  epoch 11 step 625/1652 loss 0.7459 338s peak 13.5 GiB
+  epoch 11 step 750/1652 loss 0.7324 406s peak 13.5 GiB
+  epoch 11 step 875/1652 loss 0.7258 472s peak 13.5 GiB
+  epoch 11 step 1000/1652 loss 0.7262 538s peak 13.5 GiB
+  epoch 11 step 1125/1652 loss 0.7256 605s peak 13.5 GiB
+  epoch 11 step 1250/1652 loss 0.7250 671s peak 13.5 GiB
+  epoch 11 step 1375/1652 loss 0.7248 736s peak 13.5 GiB
+  epoch 11 step 1500/1652 loss 0.7266 803s peak 13.5 GiB
+  epoch 11 step 1625/1652 loss 0.7249 873s peak 13.5 GiB
+epoch  11 | loss 0.7246/1.0512 | AUROC train 0.9410 val 0.8384 | AUPRC train 0.8810 val 0.7004 | ent 0.761 peak 0.276 | gn 24.36 lr 2.03e-06
+   @0.5 acc train 0.891 val 0.817 (bal 0.742) | recall train 0.812 val 0.641 | val prec 0.615 spec 0.844
+   val AUROC/AUPRC EDH=0.846/0.654 SDH=0.857/0.805 tSAH=0.853/0.743 Has_IVH=0.819/0.458 Contusion=0.817/0.841
+   val acc/recall@0.5 EDH=0.875/0.606 SDH=0.817/0.656 tSAH=0.799/0.679 Has_IVH=0.876/0.456 Contusion=0.718/0.807
+  epoch time 977s
+  epoch 12 step 125/1652 loss 0.7618 67s peak 13.5 GiB
+  epoch 12 step 250/1652 loss 0.7312 134s peak 13.5 GiB
+  epoch 12 step 375/1652 loss 0.7134 203s peak 13.5 GiB
+  epoch 12 step 500/1652 loss 0.7105 272s peak 13.5 GiB
+  epoch 12 step 625/1652 loss 0.7151 337s peak 13.5 GiB
+  epoch 12 step 750/1652 loss 0.7169 404s peak 13.5 GiB
+  epoch 12 step 875/1652 loss 0.7182 469s peak 13.5 GiB
+  epoch 12 step 1000/1652 loss 0.7170 535s peak 13.5 GiB
+  epoch 12 step 1125/1652 loss 0.7188 602s peak 13.5 GiB
+  epoch 12 step 1250/1652 loss 0.7195 668s peak 13.5 GiB
+  epoch 12 step 1375/1652 loss 0.7179 734s peak 13.5 GiB
+  epoch 12 step 1500/1652 loss 0.7178 802s peak 13.5 GiB
+  epoch 12 step 1625/1652 loss 0.7160 870s peak 13.5 GiB
+epoch  12 | loss 0.7157/1.0524 | AUROC train 0.9427 val 0.8392 | AUPRC train 0.8846 val 0.7016 | ent 0.757 peak 0.279 | gn 24.80 lr 0.00e+00
+   @0.5 acc train 0.892 val 0.820 (bal 0.746) | recall train 0.816 val 0.647 | val prec 0.622 spec 0.844
+   val AUROC/AUPRC EDH=0.847/0.655 SDH=0.856/0.805 tSAH=0.854/0.745 Has_IVH=0.820/0.460 Contusion=0.819/0.843
+   val acc/recall@0.5 EDH=0.880/0.602 SDH=0.819/0.665 tSAH=0.802/0.697 Has_IVH=0.880/0.456 Contusion=0.720/0.817
+  epoch time 976s
+[stage B] done. best epoch 12 val macro AUPRC 0.7016

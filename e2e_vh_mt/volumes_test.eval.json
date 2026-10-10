@@ -1,0 +1,40 @@
+{
+ "n": 1417,
+ "marshall_vi_auroc_largest_cm3": 0.7119296933433059,
+ "marshall_vi_at25_largest_cm3": {
+  "sensitivity": 0.3625,
+  "specificity": 0.955871353777113
+ },
+ "marshall_vi_auroc_total_cm3": 0.6927449513836947,
+ "marshall_vi_at25_total_cm3": {
+  "sensitivity": 0.4375,
+  "specificity": 0.8997756170531039
+ },
+ "any_ich_auroc_total": 0.7101052714806908,
+ "class_auroc_total": {
+  "EDH": 0.6470350603242672,
+  "SDH": 0.7664784355695751,
+  "tSAH": 0.6864110091394477,
+  "Has_IVH": 0.5117474932326813,
+  "Contusion": 0.6254848259057132
+ },
+ "edh_sdh_auroc_extra_axial": {
+  "EDH": 0.6564313515277228,
+  "SDH": 0.7605475130963781
+ },
+ "contusion_auroc_intra_axial": 0.6292597216907989,
+ "median_largest_by_marshall": {
+  "1": 0.8759543928713196,
+  "2": 2.2725169968337013,
+  "3": 3.5951930544939525,
+  "4": 13.1683827570298,
+  "5": 5.099343319415577,
+  "6": 11.775138449090372
+ },
+ "median_total_no_ich": 2.2619385521261544,
+ "median_total_ich": 7.0342203719064855,
+ "sdh_side_agreement": {
+  "n": 294,
+  "agreement": 0.8435374149659864
+ }
+}

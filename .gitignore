@@ -1,0 +1,21 @@
+# patient data and everything derived from it (scan keys contain accession numbers)
+outputs/
+*.nii
+*.nii.gz
+*.xlsx
+*.xls
+*.pkl
+*.npy
+*.npz
+
+# weights, checkpoints, environments, vendored code
+weights/
+*.pt
+*.pth
+.venv/
+third_party/
+__pycache__/
+*.pyc
+
+# local archives
+*.rar
